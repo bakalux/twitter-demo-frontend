@@ -16,10 +16,9 @@ import JoinedIcon from "./icons/Icon_ Joined.svg";
 
 const Wrapper = styled.section`
   width: 100%;
-  max-width: 1550px;
   margin: 0 auto;
   font-family: Helvetica;
-  font-size: 11px;
+  font-size: 1rem;
   color: #667580;
 `;
 const Header = styled.section`
@@ -57,18 +56,18 @@ const HeaderAvatar = styled.img`
   margin-right: 2%;
 `;
 
-const TweetButton = styled.button`
+const TweetButton = styled.a`
   padding: 10px 25px;
   background: ${props => (props.follow ? "#ffffff" : "#1DA1F2")};
   border-radius: 100px;
   color: ${props => (props.follow ? "#1DA1F2" : "#ffffff")};
   margin: auto 10px;
   border: solid 1px #1da1f2;
-  transform: translate(0, -25%);
 `;
 
 const BitMap = styled.section`
   background-image: url(${BitMapImage});
+  background-size: 100%;
   width: auto;
   height: 350px;
 `;
@@ -91,7 +90,7 @@ const MainAvatar = styled.img`
   border-radius: 50%;
   position: absolute;
   left: 12%;
-  top: 45%;
+  top: 30%;
 `;
 
 const Statistics = styled.div`
@@ -123,6 +122,7 @@ const MainSection = styled.section`
   background: #e6ecf0;
   padding: 10px 10px;
   margin-top: 2px;
+  min-height: 50vh;
 `;
 
 const ProfileCard = styled.section`
