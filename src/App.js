@@ -13,6 +13,14 @@ import VerifiedIcon from "./icons/Tick.svg";
 import LocationIcon from "./icons/Icon_ Location.svg";
 import LinkIcon from "./icons/Icon_ Link.svg";
 import JoinedIcon from "./icons/Icon_ Joined.svg";
+import PinnedIcon from "./icons/Icon_ Pinned.svg";
+import TweetImage from "./icons/Img.png";
+import CommentIcon from "./icons/Icon_ Comments.svg";
+import RetweetIcon from "./icons/Icon_ Retweet.svg";
+import LikedIcon from "./icons/Icon_  Liked.svg";
+import NotLikedIcon from "./icons/Icon_  notLiked.svg";
+import EnvelopeIcon from "./icons/Icon_ Envelope.svg";
+import ImgArticle from "./icons/Article image.png";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -35,6 +43,7 @@ const NavLink = styled.li`
   display: inline-block;
   text-align: left;
   padding: 0 10px;
+  color: ${props => (props.chosen ? "black" : "inherit")};
 `;
 
 const TwitterIcon = styled.img`
@@ -53,7 +62,7 @@ const HeaderAvatar = styled.img`
   display: inline-block;
   margin-top: 5px;
   margin-left: 2%;
-  margin-right: 2%;
+  margin-right: 1%;
 `;
 
 const TweetButton = styled.a`
@@ -63,6 +72,7 @@ const TweetButton = styled.a`
   color: ${props => (props.follow ? "#1DA1F2" : "#ffffff")};
   margin: auto 10px;
   border: solid 1px #1da1f2;
+  vertical-align: middle;
 `;
 
 const BitMap = styled.section`
@@ -171,6 +181,116 @@ const ProfileLink = styled.a`
   cursor: pointer;
 `;
 
+const Feed = styled.section`
+  display: inline-block;
+  background-color: #ffffff;
+  margin-left: 5%;
+  padding: 0;
+`;
+
+const FeedHeader = styled.section`
+  display: block;
+  border-bottom: solid 1px #e1e8ed;
+  color: #1da1f2;
+  padding: 10px 10px;
+`;
+
+const Tweet = styled.section`
+  display: block;
+  margin-top: 10px;
+  border-bottom: solid 1px #e1e8ed;
+`;
+
+const Pinned = styled.span`
+  color: #707e88;
+  display: block;
+  margin-left: 8%;
+  margin-bottom: 2%;
+`;
+
+const TweetAvatar = styled.img`
+  width: 50px;
+  display: inline-block;
+  vertical-align: top;
+`;
+
+const TweetContent = styled.section`
+  display: inline-block;
+  padding: 10px 10px;
+  width: 80%;
+`;
+
+const TweetInfo = styled.span`
+  font-size: 1rem;
+`;
+
+const TweetProfileName = styled.span`
+  font-weight: bold;
+  color: black;
+`;
+
+const TweetUsername = styled.span``;
+
+const TweetDate = styled.span``;
+
+const TweetText = styled.p`
+  color: black;
+  font-size: 1.3rem;
+`;
+
+const TweetImg = styled.img`
+  display: block;
+  max-width: 100%;
+  `;
+
+const TweetFooter = styled.span`
+  padding: 5px 5px;
+  display: block;
+`;
+
+const TweetFooterItem = styled.span`
+  display: inline-block;
+  margin-right: 10%;
+  color: ${props => (props.liked ? "red" : "inherit")};
+`;
+
+const TweetArticle = styled.div`
+  display: block;
+  border: 1px solid #e1e8ed;
+  border-radius: 4px;
+`;
+
+const ArticleImage = styled.img`
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+  height: auto;
+`;
+
+const ArticleContent = styled.span`
+  padding: 10px 10px;
+  width: 75%;
+  display: inline-block;
+`;
+
+const ArticleTitle = styled.span`
+  color: black;
+  font-weight: bold;
+`;
+
+const ArticleDescription = styled.span`
+  margin-top: 5px;
+  display: block;
+  font-size: 0.9rem;
+`;
+
+const ArticleLink = styled.a`
+  display: block;
+  color: #707e88;
+  font-size: 0.8rem;
+`;
+
+
 class App extends Component {
   render() {
     return (
@@ -224,8 +344,8 @@ class App extends Component {
           </Statistics>
           <TweetButton follow>Follow</TweetButton>
         </StatBar>
-        <MainSection>
-          <ProfileCard>
+        <MainSection className="row">
+          <ProfileCard className="col-xl-2 col-lg-2">
             <ProfileName>
               Every Interaction <img src={VerifiedIcon} alt="verified" />
             </ProfileName>
@@ -249,6 +369,117 @@ class App extends Component {
             <TweetButton>Tweet to</TweetButton>
             <TweetButton>Message</TweetButton>
           </ProfileCard>
+          <Feed className="col-lg-4 col-xl-4">
+            <FeedHeader>
+              <NavLink chosen>Tweets</NavLink>
+              <NavLink>Tweets & replies</NavLink>
+              <NavLink>Media</NavLink>
+            </FeedHeader>
+            <Tweet>
+              <Pinned>
+                <img src={PinnedIcon} alt="Pinned" /> Pinned Tweet
+              </Pinned>
+              <TweetAvatar src={EIAvatar} />
+              <TweetContent>
+                <TweetInfo>
+                  <TweetProfileName>Every Interaction </TweetProfileName>
+                  <TweetUsername>@EveryInteract </TweetUsername>
+                  <TweetDate>2 Mar 2015</TweetDate>
+                </TweetInfo>
+                <TweetText>
+                  We've made some more resources for all your wonderful{" "}
+                  <ProfileLink>#design</ProfileLink>{" "}
+                  <ProfileLink>everyinteraction.com/resources/</ProfileLink>{" "}
+                  <ProfileLink>#UI</ProfileLink>
+                  <TweetImg src={TweetImage} alt="Img" />
+                </TweetText>
+                <TweetFooter>
+                  <TweetFooterItem>
+                    <img src={CommentIcon} alt="comment" />
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={RetweetIcon} alt="retweet" /> 17
+                  </TweetFooterItem>
+                  <TweetFooterItem liked>
+                    <img src={LikedIcon} alt="like" /> 47
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={EnvelopeIcon} alt="envelope" />
+                  </TweetFooterItem>
+                </TweetFooter>
+              </TweetContent>
+            </Tweet>
+            <Tweet>
+              <TweetAvatar src={EIAvatar} />
+              <TweetContent>
+                <TweetInfo>
+                  <TweetProfileName>Every Interaction </TweetProfileName>
+                  <TweetUsername>@EveryInteract </TweetUsername>
+                  <TweetDate>2 Mar 2015</TweetDate>
+                </TweetInfo>
+                <TweetText>
+                  Our new website conecept; Taking you from... @Every
+                  Interaction{" "}
+                  <ProfileLink>instagram.com/p/BNFGrfhBP3M/</ProfileLink>{" "}
+                </TweetText>
+                <TweetFooter>
+                  <TweetFooterItem>
+                    <img src={CommentIcon} alt="comment" /> 1
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={RetweetIcon} alt="retweet" /> 4
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={NotLikedIcon} alt="like" /> 2
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={EnvelopeIcon} alt="envelope" />
+                  </TweetFooterItem>
+                </TweetFooter>
+              </TweetContent>
+            </Tweet>
+            <Tweet>
+              <TweetAvatar src={EIAvatar} />
+              <TweetContent>
+                <TweetInfo>
+                  <TweetProfileName>Every Interaction </TweetProfileName>
+                  <TweetUsername>@EveryInteract </TweetUsername>
+                  <TweetDate>2 Mar 2015</TweetDate>
+                </TweetInfo>
+                <TweetText>
+                  Variable web fonts are coming, and will open a world of
+                  opportunities for weight use online{" "}
+                  <TweetArticle>
+                    <ArticleImage src={ImgArticle} alt="article" />
+                    <ArticleContent>
+                      <ArticleTitle>The Future of Web Fonts</ArticleTitle>
+                      <ArticleDescription>
+                        We love typefaces. They give our sites and applications
+                        personalized feel. They convey the information and tell
+                        a story. They establish information hierarchy. But
+                        they're...
+                      </ArticleDescription>
+                      <ArticleLink>vilijamis.com</ArticleLink>
+                    </ArticleContent>
+                  </TweetArticle>
+                </TweetText>
+                <TweetFooter>
+                  <TweetFooterItem>
+                    <img src={CommentIcon} alt="comment" /> 
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={RetweetIcon} alt="retweet" /> 
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={NotLikedIcon} alt="like" /> 
+                  </TweetFooterItem>
+                  <TweetFooterItem>
+                    <img src={EnvelopeIcon} alt="envelope" />
+                  </TweetFooterItem>
+                </TweetFooter>
+              </TweetContent>
+            </Tweet>
+          </Feed>
         </MainSection>
       </Wrapper>
     );
