@@ -21,6 +21,12 @@ import LikedIcon from "./icons/Icon_  Liked.svg";
 import NotLikedIcon from "./icons/Icon_  notLiked.svg";
 import EnvelopeIcon from "./icons/Icon_ Envelope.svg";
 import ImgArticle from "./icons/Article image.png";
+import {Route, Redirect, Switch} from "react-router-dom";
+
+<Switch>
+  <Route exact path='/' render={() => <Redirect to='/everyinteract'/>}/>
+  <Route exact path='/everyinteract' component={Wrapper}/>
+</Switch>
 
 const Wrapper = styled.section`
   width: 100%;
@@ -100,7 +106,7 @@ const MainAvatar = styled.img`
   border-radius: 50%;
   position: absolute;
   left: 12%;
-  top: 30%;
+  top: 42%;
 `;
 
 const Statistics = styled.div`
@@ -139,13 +145,11 @@ const ProfileCard = styled.section`
   display: inline-block;
   margin-left: 12%;
   margin-top: 2%;
-  width: 250px;
 `;
 
 const ProfileName = styled.a`
   display: block;
-  line-height: 22px;
-  font-size: 22px;
+  font-size: 1.5rem;
   color: #14171a;
   margin-bottom: 5px;
   font-weight: bold;
@@ -153,7 +157,7 @@ const ProfileName = styled.a`
 
 const Username = styled.span`
   display: block;
-  font-size: 14px;
+  font-size: 1.3rem;
   color: #697787;
   margin-bottom: 16px;
 `;
@@ -164,16 +168,14 @@ const Following = styled.span`
 `;
 
 const Description = styled.p`
-  line-height: 20px;
-  font-size: 14px;
+  font-size: 1rem;
   color: #14171a;
 `;
 
 const CardListItem = styled.span`
   display: block;
-  line-height: 28px;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
 `;
 
 const ProfileLink = styled.a`
@@ -352,7 +354,7 @@ class App extends Component {
               Every Interaction <img src={VerifiedIcon} alt="verified" />
             </ProfileName>
             <Username>
-              @Every Interact <Following>Follows you</Following>
+              @EveryInteract <Following>Follows you</Following>
             </Username>
             <Description>
               UX Design studio focussed problem solving creativity. Design to us
