@@ -241,6 +241,7 @@ const TweetText = styled.p`
 const TweetImg = styled.img`
   display: block;
   max-width: 100%;
+  margin-top: 5px;
   `;
 
 const TweetFooter = styled.span`
@@ -258,6 +259,7 @@ const TweetArticle = styled.div`
   display: block;
   border: 1px solid #e1e8ed;
   border-radius: 4px;
+  margin-top: 5px;
 `;
 
 const ArticleImage = styled.img`
