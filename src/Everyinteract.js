@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import "normalize.css";
 import "flexboxgrid2";
-
 import HomeIcon from "./icons/Icon_Home.svg";
 import MomentsIcon from "./icons/Icon_Moments.svg";
 import NotificationsIcon from "./icons/Icon_Notifications.svg";
@@ -31,6 +30,7 @@ const Wrapper = styled.section`
   font-size: 1rem;
   color: #667580;
 `;
+
 const Header = styled.section`
   background-color: #ffffff;
 `;
