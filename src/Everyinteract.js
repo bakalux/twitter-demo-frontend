@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import HomeIcon from "./icons/Icon_Home.svg";
-import MomentsIcon from "./icons/Icon_Moments.svg";
-import NotificationsIcon from "./icons/Icon_Notifications.svg";
-import MessagesIcon from "./icons/Icon_ Messages.svg";
-import TwitterLogo from "./icons/Icon_TwitterLogo.svg";
+import Header from "./Header";
+import Statistics from "./Statistics";
+
 import VerifiedIcon from "./icons/Tick.svg";
 import LocationIcon from "./icons/Icon_ Location.svg";
 import LinkIcon from "./icons/Icon_ Link.svg";
@@ -16,7 +14,6 @@ import RetweetIcon from "./icons/Icon_ Retweet.svg";
 import LikedIcon from "./icons/Icon_  Liked.svg";
 import NotLikedIcon from "./icons/Icon_  notLiked.svg";
 import EnvelopeIcon from "./icons/Icon_ Envelope.svg";
-import SearchIcon from "./icons/Icon_Magnifier.svg";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -24,16 +21,6 @@ const Wrapper = styled.section`
   font-size: 1rem;
   color: #667580;
   overflow-x: hidden;
-`;
-
-const Header = styled.section`
-  background-color: #ffffff;
-  display: inline;
-`;
-
-const Nav = styled.ul`
-  display: inline-block;
-  margin-left: 9%;
 `;
 
 const NavLink = styled.li`
@@ -46,38 +33,6 @@ const NavLink = styled.li`
   &:hover {
     cursor: pointer;
     color: #131414;
-  }
-`;
-
-const TwitterIcon = styled.img`
-  display: inline-block;
-  margin-left: 11%;
-`;
-
-const Search = styled.input`
-  padding: 8px 8px;
-  display: inline-block;
-  margin-left: 10%;
-  background-color: #f5f8fa;
-  border-radius: 21px;
-  border: 1px solid #e6ecf0;
-  background-image: url(${SearchIcon});
-  background-size: auto auto;
-  background-repeat: no-repeat;
-  background-position: 95% center;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-const HeaderAvatar = styled.img`
-  display: inline-block;
-  margin-left: 2%;
-  vertical-align: middle;
-
-  &:hover {
-    cursor: pointer;
   }
 `;
 
@@ -129,37 +84,6 @@ const MainAvatar = styled.img`
   &:hover {
     cursor: pointer;
   }
-`;
-
-const Statistics = styled.div`
-  display: inline-block;
-  margin-left: 25%;
-  text-align: center;
-  font-weight: bold;
-  margin-right: 9%;
-`;
-
-const StatLink = styled.a`
-  padding: 10px 25px;
-  display: inline-block;
-  border-bottom: ${props => (props.active ? "solid 4px #1DA1F2" : "none")};
-  text-decoration: none;
-
-  &:hover {
-    cursor: pointer;
-    border-bottom: solid 4px #1da1f2;
-  }
-`;
-
-const LinkLabel = styled.span`
-  display: block;
-`;
-
-const LinkValue = styled.span`
-  margin-top: 7px;
-  display: block;
-  font-size: 15px;
-  color: ${props => (props.active ? "#1DA1F2" : "inherit")};
 `;
 
 const MainSection = styled.section`
@@ -300,7 +224,7 @@ const TweetFooterItem = styled.span`
 `;
 
 const TweetArticle = styled.div`
-  display: block;
+  display: flex;
   border: 1px solid #e1e8ed;
   border-radius: 4px;
   margin-top: 5px;
@@ -312,13 +236,11 @@ const TweetArticle = styled.div`
 const ArticleImage = styled.img`
   display: inline-block;
   vertical-align: top;
-  width: 20%;
-  height: auto;
+  height: 100%;
 `;
 
 const ArticleContent = styled.span`
   padding: 10px 10px;
-  width: 75%;
   display: inline-block;
 `;
 
@@ -343,53 +265,19 @@ class Everyinteract extends Component {
   render() {
     return (
       <Wrapper>
-        <Header>
-          <Nav>
-            <NavLink>
-              <img src={HomeIcon} alt="Home" /> Home
-            </NavLink>
-            <NavLink>
-              <img src={MomentsIcon} alt="Moments" /> Moments
-            </NavLink>
-            <NavLink>
-              <img src={NotificationsIcon} alt="Notifications" /> Notifications
-            </NavLink>
-            <NavLink>
-              <img src={MessagesIcon} alt="Messages" /> Messages
-            </NavLink>
-          </Nav>
-          <TwitterIcon src={TwitterLogo} alt="Twitter logo" />
-          <Search placeholder="Search Twitter" />
-          <HeaderAvatar src={process.env.PUBLIC_URL + "/img/EI Avatar.png"} />
-          <TweetButton>Tweet</TweetButton>
-        </Header>
+        <Header />
         <BitMap src={process.env.PUBLIC_URL + "/img/bitmap.png"} />
         <StatBar>
           <ProfileImage>
             <MainAvatar src={process.env.PUBLIC_URL + "/img/Avatar.png"} />
           </ProfileImage>
-          <Statistics>
-            <StatLink active>
-              <LinkLabel>Tweets</LinkLabel>
-              <LinkValue active>8,058</LinkValue>
-            </StatLink>
-            <StatLink>
-              <LinkLabel>Following</LinkLabel>
-              <LinkValue>721</LinkValue>
-            </StatLink>
-            <StatLink>
-              <LinkLabel>Followers</LinkLabel>
-              <LinkValue>1,815</LinkValue>
-            </StatLink>
-            <StatLink>
-              <LinkLabel>Likes</LinkLabel>
-              <LinkValue>460</LinkValue>
-            </StatLink>
-            <StatLink>
-              <LinkLabel>Lists</LinkLabel>
-              <LinkValue>2</LinkValue>
-            </StatLink>
-          </Statistics>
+          <Statistics
+            tweets="8081"
+            following="721"
+            followers="1815"
+            likes="460"
+            lists="2"
+          />
           <TweetButton follow>Follow</TweetButton>
         </StatBar>
         <MainSection className="row">
@@ -440,7 +328,7 @@ class Everyinteract extends Component {
                 </TweetInfo>
                 <TweetText>
                   We've made some more resources for all your wonderful{" "}
-                  <ProfileLink>#design</ProfileLink>{" "}
+                  <ProfileLink>#design</ProfileLink> folk{" "}
                   <ProfileLink href="http://www.everyinteraction.com/resources/">
                     everyinteraction.com/resources/
                   </ProfileLink>{" "}
@@ -551,4 +439,5 @@ class Everyinteract extends Component {
   }
 }
 
+export { TweetButton, NavLink };
 export default Everyinteract;
