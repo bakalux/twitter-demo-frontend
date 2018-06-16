@@ -1,38 +1,34 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import "normalize.css";
-import "flexboxgrid2";
+
 import HomeIcon from "./icons/Icon_Home.svg";
 import MomentsIcon from "./icons/Icon_Moments.svg";
 import NotificationsIcon from "./icons/Icon_Notifications.svg";
 import MessagesIcon from "./icons/Icon_ Messages.svg";
 import TwitterLogo from "./icons/Icon_TwitterLogo.svg";
-import EIAvatar from "./icons/EI Avatar.svg";
-import Avatar from "./images/Avatar.png";
-import BitMapImage from "./images/bitmap.png";
 import VerifiedIcon from "./icons/Tick.svg";
 import LocationIcon from "./icons/Icon_ Location.svg";
 import LinkIcon from "./icons/Icon_ Link.svg";
 import JoinedIcon from "./icons/Icon_ Joined.svg";
 import PinnedIcon from "./icons/Icon_ Pinned.svg";
-import TweetImage from "./icons/Img.png";
 import CommentIcon from "./icons/Icon_ Comments.svg";
 import RetweetIcon from "./icons/Icon_ Retweet.svg";
 import LikedIcon from "./icons/Icon_  Liked.svg";
 import NotLikedIcon from "./icons/Icon_  notLiked.svg";
 import EnvelopeIcon from "./icons/Icon_ Envelope.svg";
-import ImgArticle from "./icons/Article image.png";
+import SearchIcon from "./icons/Icon_Magnifier.svg";
 
 const Wrapper = styled.section`
   width: 100%;
-  margin: 0 auto;
   font-family: Helvetica;
   font-size: 1rem;
   color: #667580;
+  overflow-x:hidden;
 `;
 
 const Header = styled.section`
   background-color: #ffffff;
+  display: inline;
 `;
 
 const Nav = styled.ul`
@@ -46,6 +42,11 @@ const NavLink = styled.li`
   text-align: left;
   padding: 0 10px;
   color: ${props => (props.chosen ? "black" : "inherit")};
+
+  &:hover {
+    cursor: pointer;
+    color: #131414;
+  }
 `;
 
 const TwitterIcon = styled.img`
@@ -54,17 +55,30 @@ const TwitterIcon = styled.img`
 `;
 
 const Search = styled.input`
+  padding: 8px 8px;
   display: inline-block;
   margin-left: 10%;
-  border-radius: 100px;
+  background-color: #f5f8fa;
+  border-radius: 21px;
   border: 1px solid #e6ecf0;
+  background-image: url(${SearchIcon});
+  background-size: auto auto;
+  background-repeat: no-repeat;
+  background-position: 95% center;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const HeaderAvatar = styled.img`
   display: inline-block;
-  margin-top: 5px;
   margin-left: 2%;
-  margin-right: 1%;
+  vertical-align: middle;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const TweetButton = styled.a`
@@ -72,27 +86,35 @@ const TweetButton = styled.a`
   background: ${props => (props.follow ? "#ffffff" : "#1DA1F2")};
   border-radius: 100px;
   color: ${props => (props.follow ? "#1DA1F2" : "#ffffff")};
-  margin: auto 10px;
   border: solid 1px #1da1f2;
-  vertical-align: middle;
+  margin: auto 10px;
+
+  &:hover {
+    cursor: pointer;
+    background: ${props => (props.follow ? "#f2f3f4" : "#178fd8")};
+    color: ;
+  }
 `;
 
-const BitMap = styled.section`
-  background-image: url(${BitMapImage});
-  background-size: 100%;
-  width: auto;
+const BitMap = styled.img`
+  width: 100%;
   height: 45vh;
 `;
 
-const StatBar = styled.section`
+const StatBar = styled.div`
   padding-top: 10px;
   background-color: #ffffff;
   box-shadow: 0px 2px 2px #b0b8be;
+  display: flex;
 `;
 
 const ProfileImage = styled.div`
   display: inline-block;
   margin-left: 9%;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const MainAvatar = styled.img`
@@ -103,6 +125,10 @@ const MainAvatar = styled.img`
   position: absolute;
   left: 12%;
   top: 42%;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Statistics = styled.div`
@@ -116,7 +142,13 @@ const Statistics = styled.div`
 const StatLink = styled.a`
   padding: 10px 25px;
   display: inline-block;
-  border-bottom: ${props => (props.chosen ? "solid 4px #1DA1F2" : "none")};
+  border-bottom: ${props => (props.active ? "solid 4px #1DA1F2" : "none")};
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    border-bottom: solid 4px #1da1f2;
+  }
 `;
 
 const LinkLabel = styled.span`
@@ -127,7 +159,7 @@ const LinkValue = styled.span`
   margin-top: 7px;
   display: block;
   font-size: 15px;
-  color: ${props => (props.chosen ? "#1DA1F2" : "inherit")};
+  color: ${props => (props.active ? "#1DA1F2" : "inherit")};
 `;
 
 const MainSection = styled.section`
@@ -176,7 +208,12 @@ const CardListItem = styled.span`
 
 const ProfileLink = styled.a`
   color: #1da1f2;
-  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: #178fd8;
+  }
 `;
 
 const Feed = styled.section`
@@ -203,13 +240,17 @@ const Pinned = styled.span`
   color: #707e88;
   display: block;
   margin-left: 8%;
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 `;
 
 const TweetAvatar = styled.img`
   width: 50px;
   display: inline-block;
   vertical-align: top;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const TweetContent = styled.section`
@@ -231,7 +272,8 @@ const TweetUsername = styled.span``;
 
 const TweetDate = styled.span``;
 
-const TweetText = styled.p`
+const TweetText = styled.span`
+  display: block;
   color: black;
   font-size: 1.3rem;
 `;
@@ -251,6 +293,10 @@ const TweetFooterItem = styled.span`
   display: inline-block;
   margin-right: 10%;
   color: ${props => (props.liked ? "red" : "inherit")};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const TweetArticle = styled.div`
@@ -258,6 +304,9 @@ const TweetArticle = styled.div`
   border: 1px solid #e1e8ed;
   border-radius: 4px;
   margin-top: 5px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ArticleImage = styled.img`
@@ -311,18 +360,18 @@ class Everyinteract extends Component {
           </Nav>
           <TwitterIcon src={TwitterLogo} alt="Twitter logo" />
           <Search placeholder="Search Twitter" />
-          <HeaderAvatar src={EIAvatar} />
+          <HeaderAvatar src={process.env.PUBLIC_URL + "/img/EI Avatar.png"} />
           <TweetButton>Tweet</TweetButton>
         </Header>
-        <BitMap />
+        <BitMap src={process.env.PUBLIC_URL + "/img/bitmap.png"} />
         <StatBar>
           <ProfileImage>
-            <MainAvatar src={Avatar} />
+            <MainAvatar src={process.env.PUBLIC_URL + "/img/Avatar.png"} />
           </ProfileImage>
           <Statistics>
-            <StatLink chosen>
+            <StatLink active>
               <LinkLabel>Tweets</LinkLabel>
-              <LinkValue chosen>8,058</LinkValue>
+              <LinkValue active>8,058</LinkValue>
             </StatLink>
             <StatLink>
               <LinkLabel>Following</LinkLabel>
@@ -360,7 +409,9 @@ class Everyinteract extends Component {
             </CardListItem>
             <CardListItem>
               <img src={LinkIcon} alt="link" />{" "}
-              <ProfileLink>everyinteraction.com</ProfileLink>
+              <ProfileLink href="https://www.everyinteraction.com/">
+                everyinteraction.com
+              </ProfileLink>
             </CardListItem>
             <CardListItem>
               <img src={JoinedIcon} alt="joined" /> Joined May 2008
@@ -370,7 +421,7 @@ class Everyinteract extends Component {
           </ProfileCard>
           <Feed className="col-lg-4 col-xl-4">
             <FeedHeader>
-              <NavLink chosen>Tweets</NavLink>
+              <NavLink active>Tweets</NavLink>
               <NavLink>Tweets & replies</NavLink>
               <NavLink>Media</NavLink>
             </FeedHeader>
@@ -378,7 +429,9 @@ class Everyinteract extends Component {
               <Pinned>
                 <img src={PinnedIcon} alt="Pinned" /> Pinned Tweet
               </Pinned>
-              <TweetAvatar src={EIAvatar} />
+              <TweetAvatar
+                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+              />
               <TweetContent>
                 <TweetInfo>
                   <TweetProfileName>Every Interaction </TweetProfileName>
@@ -388,9 +441,14 @@ class Everyinteract extends Component {
                 <TweetText>
                   We've made some more resources for all your wonderful{" "}
                   <ProfileLink>#design</ProfileLink>{" "}
-                  <ProfileLink>everyinteraction.com/resources/</ProfileLink>{" "}
+                  <ProfileLink href="http://www.everyinteraction.com/resources/">
+                    everyinteraction.com/resources/
+                  </ProfileLink>{" "}
                   <ProfileLink>#UI</ProfileLink>
-                  <TweetImg src={TweetImage} alt="Img" />
+                  <TweetImg
+                    src={process.env.PUBLIC_URL + "/img/Img.png"}
+                    alt="Img"
+                  />
                 </TweetText>
                 <TweetFooter>
                   <TweetFooterItem>
@@ -409,7 +467,9 @@ class Everyinteract extends Component {
               </TweetContent>
             </Tweet>
             <Tweet>
-              <TweetAvatar src={EIAvatar} />
+              <TweetAvatar
+                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+              />
               <TweetContent>
                 <TweetInfo>
                   <TweetProfileName>Every Interaction </TweetProfileName>
@@ -419,7 +479,9 @@ class Everyinteract extends Component {
                 <TweetText>
                   Our new website conecept; Taking you from... @Every
                   Interaction{" "}
-                  <ProfileLink>instagram.com/p/BNFGrfhBP3M/</ProfileLink>{" "}
+                  <ProfileLink href="https://www.instagram.com/p/BNFGrfhBP3M/">
+                    instagram.com/p/BNFGrfhBP3M/
+                  </ProfileLink>{" "}
                 </TweetText>
                 <TweetFooter>
                   <TweetFooterItem>
@@ -438,7 +500,9 @@ class Everyinteract extends Component {
               </TweetContent>
             </Tweet>
             <Tweet>
-              <TweetAvatar src={EIAvatar} />
+              <TweetAvatar
+                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+              />
               <TweetContent>
                 <TweetInfo>
                   <TweetProfileName>Every Interaction </TweetProfileName>
@@ -449,7 +513,9 @@ class Everyinteract extends Component {
                   Variable web fonts are coming, and will open a world of
                   opportunities for weight use online{" "}
                   <TweetArticle>
-                    <ArticleImage src={ImgArticle} alt="article" />
+                    <ArticleImage
+                      src={process.env.PUBLIC_URL + "/img/Article image.png"}
+                    />
                     <ArticleContent>
                       <ArticleTitle>The Future of Web Fonts</ArticleTitle>
                       <ArticleDescription>
