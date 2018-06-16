@@ -23,7 +23,7 @@ const Wrapper = styled.section`
   font-family: Helvetica;
   font-size: 1rem;
   color: #667580;
-  overflow-x:hidden;
+  overflow-x: hidden;
 `;
 
 const Header = styled.section`
