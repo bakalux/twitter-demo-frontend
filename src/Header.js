@@ -6,7 +6,7 @@ import notificationsIcon from "./icons/Icon_Notifications.svg";
 import messagesIcon from "./icons/Icon_ Messages.svg";
 import twitterLogo from "./icons/Icon_TwitterLogo.svg";
 import searchIcon from "./icons/Icon_Magnifier.svg";
-import { TweetButton, NavLink } from "./UserPage";
+import { TweetButton, NavLink } from "./ProfilePage";
 
 const Nav = styled.ul`
   display: inline-block;

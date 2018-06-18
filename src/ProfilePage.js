@@ -261,7 +261,7 @@ const ArticleLink = styled.a`
   font-size: 0.8rem;
 `;
 
-class UserPage extends Component {
+class ProfilePage extends Component {
   render() {
     return (
       <Wrapper>
@@ -440,4 +440,4 @@ class UserPage extends Component {
 }
 
 export { TweetButton, NavLink };
-export default UserPage;
+export default ProfilePage;
