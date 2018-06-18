@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import Header from "./Header";
+import Header, { NavLink } from "./Header";
 import Statistics from "./Statistics";
+import TweetButton from "./TweetButton";
+import ProfileCard from "./ProfileCard";
 
-import verifiedIcon from "./icons/Tick.svg";
-import locationIcon from "./icons/Icon_ Location.svg";
-import linkIcon from "./icons/Icon_ Link.svg";
-import joinedIcon from "./icons/Icon_ Joined.svg";
 import pinnedIcon from "./icons/Icon_ Pinned.svg";
 import commentIcon from "./icons/Icon_ Comments.svg";
 import retweetIcon from "./icons/Icon_ Retweet.svg";
@@ -21,34 +19,6 @@ const Wrapper = styled.section`
   font-size: 1rem;
   color: #667580;
   overflow-x: hidden;
-`;
-
-const NavLink = styled.li`
-  font-weight: bold;
-  display: inline-block;
-  text-align: left;
-  padding: 0 10px;
-  color: ${props => (props.active ? "black" : "inherit")};
-
-  &:hover {
-    cursor: pointer;
-    color: #131414;
-  }
-`;
-
-const TweetButton = styled.a`
-  padding: 10px 25px;
-  background: ${props => (props.follow ? "#ffffff" : "#1DA1F2")};
-  border-radius: 100px;
-  color: ${props => (props.follow ? "#1DA1F2" : "#ffffff")};
-  border: solid 1px #1da1f2;
-  margin: auto 10px;
-
-  &:hover {
-    cursor: pointer;
-    background: ${props => (props.follow ? "#f2f3f4" : "#178fd8")};
-    color: ;
-  }
 `;
 
 const BitMap = styled.img`
@@ -93,58 +63,11 @@ const MainSection = styled.section`
   min-height: 50vh;
 `;
 
-const ProfileCard = styled.section`
-  display: inline-block;
-  margin-left: 12%;
-  margin-top: 2%;
-`;
-
-const ProfileName = styled.a`
-  display: block;
-  font-size: 1.5rem;
-  color: #14171a;
-  margin-bottom: 5px;
-  font-weight: bold;
-`;
-
-const Username = styled.span`
-  display: block;
-  font-size: 1.3rem;
-  color: #697787;
-  margin-bottom: 16px;
-`;
-
-const Following = styled.span`
-  font-size: 12px;
-  margin-left: 8px;
-`;
-
-const Description = styled.p`
-  font-size: 1rem;
-  color: #14171a;
-`;
-
-const CardListItem = styled.span`
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 16px;
-`;
-
-const ProfileLink = styled.a`
-  color: #1da1f2;
-  text-decoration: none;
-
-  &:hover {
-    cursor: pointer;
-    color: #178fd8;
-  }
-`;
-
 const Feed = styled.section`
   display: inline-block;
   background-color: #ffffff;
-  margin-left: 5%;
   padding: 0;
+  margin-left: 15%;
 `;
 
 const FeedHeader = styled.section`
@@ -281,158 +204,146 @@ class ProfilePage extends Component {
           <TweetButton follow>Follow</TweetButton>
         </StatBar>
         <MainSection className="row">
-          <ProfileCard className="col-xl-2 col-lg-2">
-            <ProfileName>
-              Every Interaction <img src={verifiedIcon} alt="verified" />
-            </ProfileName>
-            <Username>
-              @EveryInteract <Following>Follows you</Following>
-            </Username>
-            <Description>
-              UX Design studio focussed problem solving creativity. Design to us
-              is how can we make things "work" amazing.
-            </Description>
-            <CardListItem>
-              <img src={locationIcon} alt="location" /> London, UK
-            </CardListItem>
-            <CardListItem>
-              <img src={linkIcon} alt="link" />{" "}
-              <ProfileLink href="https://www.everyinteraction.com/">
-                everyinteraction.com
-              </ProfileLink>
-            </CardListItem>
-            <CardListItem>
-              <img src={joinedIcon} alt="joined" /> Joined May 2008
-            </CardListItem>
-            <TweetButton>Tweet to</TweetButton>
-            <TweetButton>Message</TweetButton>
-          </ProfileCard>
-          <Feed className="col-lg-4 col-xl-4">
-            <FeedHeader>
-              <NavLink active>Tweets</NavLink>
-              <NavLink>Tweets & replies</NavLink>
-              <NavLink>Media</NavLink>
-            </FeedHeader>
-            <Tweet>
-              <Pinned>
-                <img src={pinnedIcon} alt="Pinned" /> Pinned Tweet
-              </Pinned>
-              <TweetAvatar
-                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-              />
-              <TweetContent>
-                <TweetInfo>
-                  <TweetProfileName>Every Interaction </TweetProfileName>
-                  <TweetUsername>@EveryInteract </TweetUsername>
-                  <TweetDate>2 Mar 2015</TweetDate>
-                </TweetInfo>
-                <TweetText>
-                  We've made some more resources for all your wonderful{" "}
-                  <ProfileLink>#design</ProfileLink> folk{" "}
-                  <ProfileLink href="http://www.everyinteraction.com/resources/">
-                    everyinteraction.com/resources/
-                  </ProfileLink>{" "}
-                  <ProfileLink>#UI</ProfileLink>
-                  <TweetImg
-                    src={process.env.PUBLIC_URL + "/img/Img.png"}
-                    alt="Img"
-                  />
-                </TweetText>
-                <TweetFooter>
-                  <TweetFooterItem>
-                    <img src={commentIcon} alt="comment" />
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={retweetIcon} alt="retweet" /> 17
-                  </TweetFooterItem>
-                  <TweetFooterItem liked>
-                    <img src={likedIcon} alt="like" /> 47
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={envelopeIcon} alt="envelope" />
-                  </TweetFooterItem>
-                </TweetFooter>
-              </TweetContent>
-            </Tweet>
-            <Tweet>
-              <TweetAvatar
-                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-              />
-              <TweetContent>
-                <TweetInfo>
-                  <TweetProfileName>Every Interaction </TweetProfileName>
-                  <TweetUsername>@EveryInteract </TweetUsername>
-                  <TweetDate>2 Mar 2015</TweetDate>
-                </TweetInfo>
-                <TweetText>
-                  Our new website conecept; Taking you from... @Every
-                  Interaction{" "}
-                  <ProfileLink href="https://www.instagram.com/p/BNFGrfhBP3M/">
-                    instagram.com/p/BNFGrfhBP3M/
-                  </ProfileLink>{" "}
-                </TweetText>
-                <TweetFooter>
-                  <TweetFooterItem>
-                    <img src={commentIcon} alt="comment" /> 1
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={retweetIcon} alt="retweet" /> 4
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={notLikedIcon} alt="like" /> 2
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={envelopeIcon} alt="envelope" />
-                  </TweetFooterItem>
-                </TweetFooter>
-              </TweetContent>
-            </Tweet>
-            <Tweet>
-              <TweetAvatar
-                src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-              />
-              <TweetContent>
-                <TweetInfo>
-                  <TweetProfileName>Every Interaction </TweetProfileName>
-                  <TweetUsername>@EveryInteract </TweetUsername>
-                  <TweetDate>2 Mar 2015</TweetDate>
-                </TweetInfo>
-                <TweetText>
-                  Variable web fonts are coming, and will open a world of
-                  opportunities for weight use online{" "}
-                  <TweetArticle>
-                    <ArticleImage
-                      src={process.env.PUBLIC_URL + "/img/Article image.png"}
+          <div class="col-xl-offset-1 col-lg-offset-1" />
+          <div className="col-xl-2 col-lg-2">
+            <ProfileCard
+              profileName="Every Interaction"
+              username="EveryInteract"
+              description="UX Design studio focussed problem solving creativity. Design to us is
+        how can we make things &quot;work&quot; amazing."
+              profileLink="everyinteraction.com"
+              joined="8 May 2008"
+              verified="true"
+            />
+          </div>
+          <div className="col-lg-6 col-xl-6">
+            <Feed>
+              <FeedHeader>
+                <NavLink active>Tweets</NavLink>
+                <NavLink>Tweets & replies</NavLink>
+                <NavLink>Media</NavLink>
+              </FeedHeader>
+              <Tweet>
+                <Pinned>
+                  <img src={pinnedIcon} alt="Pinned" /> Pinned Tweet
+                </Pinned>
+                <TweetAvatar
+                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+                />
+                <TweetContent>
+                  <TweetInfo>
+                    <TweetProfileName>Every Interaction </TweetProfileName>
+                    <TweetUsername>@EveryInteract </TweetUsername>
+                    <TweetDate>2 Mar 2015</TweetDate>
+                  </TweetInfo>
+                  <TweetText>
+                    We've made some more resources for all your wonderful{" "}
+                    <a>#design</a> folk{" "}
+                    <a href="http://www.everyinteraction.com/resources/">
+                      everyinteraction.com/resources/
+                    </a>{" "}
+                    <a>#UI</a>
+                    <TweetImg
+                      src={process.env.PUBLIC_URL + "/img/Img.png"}
+                      alt="Img"
                     />
-                    <ArticleContent>
-                      <ArticleTitle>The Future of Web Fonts</ArticleTitle>
-                      <ArticleDescription>
-                        We love typefaces. They give our sites and applications
-                        personalized feel. They convey the information and tell
-                        a story. They establish information hierarchy. But
-                        they're...
-                      </ArticleDescription>
-                      <ArticleLink>vilijamis.com</ArticleLink>
-                    </ArticleContent>
-                  </TweetArticle>
-                </TweetText>
-                <TweetFooter>
-                  <TweetFooterItem>
-                    <img src={commentIcon} alt="comment" />
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={retweetIcon} alt="retweet" />
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={notLikedIcon} alt="like" />
-                  </TweetFooterItem>
-                  <TweetFooterItem>
-                    <img src={envelopeIcon} alt="envelope" />
-                  </TweetFooterItem>
-                </TweetFooter>
-              </TweetContent>
-            </Tweet>
-          </Feed>
+                  </TweetText>
+                  <TweetFooter>
+                    <TweetFooterItem>
+                      <img src={commentIcon} alt="comment" />
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={retweetIcon} alt="retweet" /> 17
+                    </TweetFooterItem>
+                    <TweetFooterItem liked>
+                      <img src={likedIcon} alt="like" /> 47
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={envelopeIcon} alt="envelope" />
+                    </TweetFooterItem>
+                  </TweetFooter>
+                </TweetContent>
+              </Tweet>
+              <Tweet>
+                <TweetAvatar
+                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+                />
+                <TweetContent>
+                  <TweetInfo>
+                    <TweetProfileName>Every Interaction </TweetProfileName>
+                    <TweetUsername>@EveryInteract </TweetUsername>
+                    <TweetDate>2 Mar 2015</TweetDate>
+                  </TweetInfo>
+                  <TweetText>
+                    Our new website conecept; Taking you from... @Every
+                    Interaction{" "}
+                    <a href="https://www.instagram.com/p/BNFGrfhBP3M/">
+                      instagram.com/p/BNFGrfhBP3M/
+                    </a>{" "}
+                  </TweetText>
+                  <TweetFooter>
+                    <TweetFooterItem>
+                      <img src={commentIcon} alt="comment" /> 1
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={retweetIcon} alt="retweet" /> 4
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={notLikedIcon} alt="like" /> 2
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={envelopeIcon} alt="envelope" />
+                    </TweetFooterItem>
+                  </TweetFooter>
+                </TweetContent>
+              </Tweet>
+              <Tweet>
+                <TweetAvatar
+                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
+                />
+                <TweetContent>
+                  <TweetInfo>
+                    <TweetProfileName>Every Interaction </TweetProfileName>
+                    <TweetUsername>@EveryInteract </TweetUsername>
+                    <TweetDate>2 Mar 2015</TweetDate>
+                  </TweetInfo>
+                  <TweetText>
+                    Variable web fonts are coming, and will open a world of
+                    opportunities for weight use online{" "}
+                    <TweetArticle>
+                      <ArticleImage
+                        src={process.env.PUBLIC_URL + "/img/Article image.png"}
+                      />
+                      <ArticleContent>
+                        <ArticleTitle>The Future of Web Fonts</ArticleTitle>
+                        <ArticleDescription>
+                          We love typefaces. They give our sites and
+                          applications personalized feel. They convey the
+                          information and tell a story. They establish
+                          information hierarchy. But they're...
+                        </ArticleDescription>
+                        <ArticleLink>vilijamis.com</ArticleLink>
+                      </ArticleContent>
+                    </TweetArticle>
+                  </TweetText>
+                  <TweetFooter>
+                    <TweetFooterItem>
+                      <img src={commentIcon} alt="comment" />
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={retweetIcon} alt="retweet" />
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={notLikedIcon} alt="like" />
+                    </TweetFooterItem>
+                    <TweetFooterItem>
+                      <img src={envelopeIcon} alt="envelope" />
+                    </TweetFooterItem>
+                  </TweetFooter>
+                </TweetContent>
+              </Tweet>
+            </Feed>
+          </div>
         </MainSection>
       </Wrapper>
     );
