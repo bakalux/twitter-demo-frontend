@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import HomeIcon from "./icons/Icon_Home.svg";
-import MomentsIcon from "./icons/Icon_Moments.svg";
-import NotificationsIcon from "./icons/Icon_Notifications.svg";
-import MessagesIcon from "./icons/Icon_ Messages.svg";
-import TwitterLogo from "./icons/Icon_TwitterLogo.svg";
-import SearchIcon from "./icons/Icon_Magnifier.svg";
-import { TweetButton, NavLink } from "./Everyinteract";
+import homeIcon from "./icons/Icon_Home.svg";
+import momentsIcon from "./icons/Icon_Moments.svg";
+import notificationsIcon from "./icons/Icon_Notifications.svg";
+import messagesIcon from "./icons/Icon_ Messages.svg";
+import twitterLogo from "./icons/Icon_TwitterLogo.svg";
+import searchIcon from "./icons/Icon_Magnifier.svg";
+import { TweetButton, NavLink } from "./UserPage";
 
 const Nav = styled.ul`
   display: inline-block;
@@ -25,7 +25,7 @@ const Search = styled.input`
   background-color: #f5f8fa;
   border-radius: 21px;
   border: 1px solid #e6ecf0;
-  background-image: url(${SearchIcon});
+  background-image: url(${searchIcon});
   background-size: auto auto;
   background-repeat: no-repeat;
   background-position: 95% center;
@@ -51,19 +51,19 @@ class Header extends Component {
       <div>
         <Nav>
           <NavLink>
-            <img src={HomeIcon} alt="Home" /> Home
+            <img src={homeIcon} alt="Home" /> Home
           </NavLink>
           <NavLink>
-            <img src={MomentsIcon} alt="Moments" /> Moments
+            <img src={momentsIcon} alt="Moments" /> Moments
           </NavLink>
           <NavLink>
-            <img src={NotificationsIcon} alt="Notifications" /> Notifications
+            <img src={notificationsIcon} alt="Notifications" /> Notifications
           </NavLink>
           <NavLink>
-            <img src={MessagesIcon} alt="Messages" /> Messages
+            <img src={messagesIcon} alt="Messages" /> Messages
           </NavLink>
         </Nav>
-        <TwitterIcon src={TwitterLogo} alt="Twitter logo" />
+        <TwitterIcon src={twitterLogo} alt="Twitter logo" />
         <Search placeholder="Search Twitter" />
         <HeaderAvatar src={process.env.PUBLIC_URL + "/img/EI Avatar.png"} />
         <TweetButton>Tweet</TweetButton>

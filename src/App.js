@@ -1,20 +1,21 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import UserPage from "./UserPage";
 
-import Everyinteract from "./Everyinteract";
+const Routing = () => {
+  return (
+    <div>
+      <Redirect from="/" to="/EveryInteract" />
+      <Route exact path="/EveryInteract" component={UserPage} />
+    </div>
+  );
+};
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => <Redirect to="/everyinteract" />}
-          />
-          <Route exact path="/everyinteract" component={Everyinteract} />
-        </Switch>
+        <Routing />
       </BrowserRouter>
     );
   }

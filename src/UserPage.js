@@ -4,16 +4,16 @@ import styled from "styled-components";
 import Header from "./Header";
 import Statistics from "./Statistics";
 
-import VerifiedIcon from "./icons/Tick.svg";
-import LocationIcon from "./icons/Icon_ Location.svg";
-import LinkIcon from "./icons/Icon_ Link.svg";
-import JoinedIcon from "./icons/Icon_ Joined.svg";
-import PinnedIcon from "./icons/Icon_ Pinned.svg";
-import CommentIcon from "./icons/Icon_ Comments.svg";
-import RetweetIcon from "./icons/Icon_ Retweet.svg";
-import LikedIcon from "./icons/Icon_  Liked.svg";
-import NotLikedIcon from "./icons/Icon_  notLiked.svg";
-import EnvelopeIcon from "./icons/Icon_ Envelope.svg";
+import verifiedIcon from "./icons/Tick.svg";
+import locationIcon from "./icons/Icon_ Location.svg";
+import linkIcon from "./icons/Icon_ Link.svg";
+import joinedIcon from "./icons/Icon_ Joined.svg";
+import pinnedIcon from "./icons/Icon_ Pinned.svg";
+import commentIcon from "./icons/Icon_ Comments.svg";
+import retweetIcon from "./icons/Icon_ Retweet.svg";
+import likedIcon from "./icons/Icon_  Liked.svg";
+import notLikedIcon from "./icons/Icon_  notLiked.svg";
+import envelopeIcon from "./icons/Icon_ Envelope.svg";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -28,7 +28,7 @@ const NavLink = styled.li`
   display: inline-block;
   text-align: left;
   padding: 0 10px;
-  color: ${props => (props.chosen ? "black" : "inherit")};
+  color: ${props => (props.active ? "black" : "inherit")};
 
   &:hover {
     cursor: pointer;
@@ -261,7 +261,7 @@ const ArticleLink = styled.a`
   font-size: 0.8rem;
 `;
 
-class Everyinteract extends Component {
+class UserPage extends Component {
   render() {
     return (
       <Wrapper>
@@ -283,7 +283,7 @@ class Everyinteract extends Component {
         <MainSection className="row">
           <ProfileCard className="col-xl-2 col-lg-2">
             <ProfileName>
-              Every Interaction <img src={VerifiedIcon} alt="verified" />
+              Every Interaction <img src={verifiedIcon} alt="verified" />
             </ProfileName>
             <Username>
               @EveryInteract <Following>Follows you</Following>
@@ -293,16 +293,16 @@ class Everyinteract extends Component {
               is how can we make things "work" amazing.
             </Description>
             <CardListItem>
-              <img src={LocationIcon} alt="location" /> London, UK
+              <img src={locationIcon} alt="location" /> London, UK
             </CardListItem>
             <CardListItem>
-              <img src={LinkIcon} alt="link" />{" "}
+              <img src={linkIcon} alt="link" />{" "}
               <ProfileLink href="https://www.everyinteraction.com/">
                 everyinteraction.com
               </ProfileLink>
             </CardListItem>
             <CardListItem>
-              <img src={JoinedIcon} alt="joined" /> Joined May 2008
+              <img src={joinedIcon} alt="joined" /> Joined May 2008
             </CardListItem>
             <TweetButton>Tweet to</TweetButton>
             <TweetButton>Message</TweetButton>
@@ -315,7 +315,7 @@ class Everyinteract extends Component {
             </FeedHeader>
             <Tweet>
               <Pinned>
-                <img src={PinnedIcon} alt="Pinned" /> Pinned Tweet
+                <img src={pinnedIcon} alt="Pinned" /> Pinned Tweet
               </Pinned>
               <TweetAvatar
                 src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
@@ -340,16 +340,16 @@ class Everyinteract extends Component {
                 </TweetText>
                 <TweetFooter>
                   <TweetFooterItem>
-                    <img src={CommentIcon} alt="comment" />
+                    <img src={commentIcon} alt="comment" />
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={RetweetIcon} alt="retweet" /> 17
+                    <img src={retweetIcon} alt="retweet" /> 17
                   </TweetFooterItem>
                   <TweetFooterItem liked>
-                    <img src={LikedIcon} alt="like" /> 47
+                    <img src={likedIcon} alt="like" /> 47
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={EnvelopeIcon} alt="envelope" />
+                    <img src={envelopeIcon} alt="envelope" />
                   </TweetFooterItem>
                 </TweetFooter>
               </TweetContent>
@@ -373,16 +373,16 @@ class Everyinteract extends Component {
                 </TweetText>
                 <TweetFooter>
                   <TweetFooterItem>
-                    <img src={CommentIcon} alt="comment" /> 1
+                    <img src={commentIcon} alt="comment" /> 1
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={RetweetIcon} alt="retweet" /> 4
+                    <img src={retweetIcon} alt="retweet" /> 4
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={NotLikedIcon} alt="like" /> 2
+                    <img src={notLikedIcon} alt="like" /> 2
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={EnvelopeIcon} alt="envelope" />
+                    <img src={envelopeIcon} alt="envelope" />
                   </TweetFooterItem>
                 </TweetFooter>
               </TweetContent>
@@ -418,16 +418,16 @@ class Everyinteract extends Component {
                 </TweetText>
                 <TweetFooter>
                   <TweetFooterItem>
-                    <img src={CommentIcon} alt="comment" />
+                    <img src={commentIcon} alt="comment" />
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={RetweetIcon} alt="retweet" />
+                    <img src={retweetIcon} alt="retweet" />
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={NotLikedIcon} alt="like" />
+                    <img src={notLikedIcon} alt="like" />
                   </TweetFooterItem>
                   <TweetFooterItem>
-                    <img src={EnvelopeIcon} alt="envelope" />
+                    <img src={envelopeIcon} alt="envelope" />
                   </TweetFooterItem>
                 </TweetFooter>
               </TweetContent>
@@ -440,4 +440,4 @@ class Everyinteract extends Component {
 }
 
 export { TweetButton, NavLink };
-export default Everyinteract;
+export default UserPage;
