@@ -5,13 +5,7 @@ import Header, { NavLink } from "./Header";
 import Statistics from "./Statistics";
 import TweetButton from "./TweetButton";
 import ProfileCard from "./ProfileCard";
-
-import pinnedIcon from "./icons/Icon_ Pinned.svg";
-import commentIcon from "./icons/Icon_ Comments.svg";
-import retweetIcon from "./icons/Icon_ Retweet.svg";
-import likedIcon from "./icons/Icon_  Liked.svg";
-import notLikedIcon from "./icons/Icon_  notLiked.svg";
-import envelopeIcon from "./icons/Icon_ Envelope.svg";
+import Tweet from "./Tweet";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -77,113 +71,6 @@ const FeedHeader = styled.section`
   padding: 10px 10px;
 `;
 
-const Tweet = styled.section`
-  display: block;
-  margin-top: 10px;
-  border-bottom: solid 1px #e1e8ed;
-`;
-
-const Pinned = styled.span`
-  color: #707e88;
-  display: block;
-  margin-left: 8%;
-  margin-bottom: 1%;
-`;
-
-const TweetAvatar = styled.img`
-  width: 50px;
-  display: inline-block;
-  vertical-align: top;
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const TweetContent = styled.section`
-  display: inline-block;
-  padding: 10px 10px;
-  width: 80%;
-`;
-
-const TweetInfo = styled.span`
-  font-size: 1rem;
-`;
-
-const TweetProfileName = styled.span`
-  font-weight: bold;
-  color: black;
-`;
-
-const TweetUsername = styled.span``;
-
-const TweetDate = styled.span``;
-
-const TweetText = styled.span`
-  display: block;
-  color: black;
-  font-size: 1.3rem;
-`;
-
-const TweetImg = styled.img`
-  display: block;
-  max-width: 100%;
-  margin-top: 5px;
-`;
-
-const TweetFooter = styled.span`
-  padding: 5px 5px;
-  display: block;
-`;
-
-const TweetFooterItem = styled.span`
-  display: inline-block;
-  margin-right: 10%;
-  color: ${props => (props.liked ? "red" : "inherit")};
-
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const TweetArticle = styled.div`
-  display: flex;
-  border: 1px solid #e1e8ed;
-  border-radius: 4px;
-  margin-top: 5px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-const ArticleImage = styled.img`
-  display: inline-block;
-  vertical-align: top;
-  height: 100%;
-`;
-
-const ArticleContent = styled.span`
-  padding: 10px 10px;
-  display: inline-block;
-`;
-
-const ArticleTitle = styled.span`
-  color: black;
-  font-weight: bold;
-`;
-
-const ArticleDescription = styled.span`
-  margin-top: 5px;
-  display: block;
-  font-size: 0.9rem;
-`;
-
-const ArticleLink = styled.a`
-  display: block;
-  color: #707e88;
-  font-size: 0.8rem;
-`;
-
 class ProfilePage extends Component {
   render() {
     return (
@@ -213,7 +100,7 @@ class ProfilePage extends Component {
         how can we make things &quot;work&quot; amazing."
               profileLink="everyinteraction.com"
               joined="8 May 2008"
-              verified="true"
+              verified
             />
           </div>
           <div className="col-lg-6 col-xl-6">
@@ -223,125 +110,41 @@ class ProfilePage extends Component {
                 <NavLink>Tweets & replies</NavLink>
                 <NavLink>Media</NavLink>
               </FeedHeader>
-              <Tweet>
-                <Pinned>
-                  <img src={pinnedIcon} alt="Pinned" /> Pinned Tweet
-                </Pinned>
-                <TweetAvatar
-                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-                />
-                <TweetContent>
-                  <TweetInfo>
-                    <TweetProfileName>Every Interaction </TweetProfileName>
-                    <TweetUsername>@EveryInteract </TweetUsername>
-                    <TweetDate>2 Mar 2015</TweetDate>
-                  </TweetInfo>
-                  <TweetText>
-                    We've made some more resources for all your wonderful{" "}
-                    <a>#design</a> folk{" "}
-                    <a href="http://www.everyinteraction.com/resources/">
-                      everyinteraction.com/resources/
-                    </a>{" "}
-                    <a>#UI</a>
-                    <TweetImg
-                      src={process.env.PUBLIC_URL + "/img/Img.png"}
-                      alt="Img"
-                    />
-                  </TweetText>
-                  <TweetFooter>
-                    <TweetFooterItem>
-                      <img src={commentIcon} alt="comment" />
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={retweetIcon} alt="retweet" /> 17
-                    </TweetFooterItem>
-                    <TweetFooterItem liked>
-                      <img src={likedIcon} alt="like" /> 47
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={envelopeIcon} alt="envelope" />
-                    </TweetFooterItem>
-                  </TweetFooter>
-                </TweetContent>
-              </Tweet>
-              <Tweet>
-                <TweetAvatar
-                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-                />
-                <TweetContent>
-                  <TweetInfo>
-                    <TweetProfileName>Every Interaction </TweetProfileName>
-                    <TweetUsername>@EveryInteract </TweetUsername>
-                    <TweetDate>2 Mar 2015</TweetDate>
-                  </TweetInfo>
-                  <TweetText>
-                    Our new website conecept; Taking you from... @Every
-                    Interaction{" "}
-                    <a href="https://www.instagram.com/p/BNFGrfhBP3M/">
-                      instagram.com/p/BNFGrfhBP3M/
-                    </a>{" "}
-                  </TweetText>
-                  <TweetFooter>
-                    <TweetFooterItem>
-                      <img src={commentIcon} alt="comment" /> 1
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={retweetIcon} alt="retweet" /> 4
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={notLikedIcon} alt="like" /> 2
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={envelopeIcon} alt="envelope" />
-                    </TweetFooterItem>
-                  </TweetFooter>
-                </TweetContent>
-              </Tweet>
-              <Tweet>
-                <TweetAvatar
-                  src={process.env.PUBLIC_URL + "/img/EI Avatar.png"}
-                />
-                <TweetContent>
-                  <TweetInfo>
-                    <TweetProfileName>Every Interaction </TweetProfileName>
-                    <TweetUsername>@EveryInteract </TweetUsername>
-                    <TweetDate>2 Mar 2015</TweetDate>
-                  </TweetInfo>
-                  <TweetText>
-                    Variable web fonts are coming, and will open a world of
-                    opportunities for weight use online{" "}
-                    <TweetArticle>
-                      <ArticleImage
-                        src={process.env.PUBLIC_URL + "/img/Article image.png"}
-                      />
-                      <ArticleContent>
-                        <ArticleTitle>The Future of Web Fonts</ArticleTitle>
-                        <ArticleDescription>
-                          We love typefaces. They give our sites and
-                          applications personalized feel. They convey the
-                          information and tell a story. They establish
-                          information hierarchy. But they're...
-                        </ArticleDescription>
-                        <ArticleLink>vilijamis.com</ArticleLink>
-                      </ArticleContent>
-                    </TweetArticle>
-                  </TweetText>
-                  <TweetFooter>
-                    <TweetFooterItem>
-                      <img src={commentIcon} alt="comment" />
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={retweetIcon} alt="retweet" />
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={notLikedIcon} alt="like" />
-                    </TweetFooterItem>
-                    <TweetFooterItem>
-                      <img src={envelopeIcon} alt="envelope" />
-                    </TweetFooterItem>
-                  </TweetFooter>
-                </TweetContent>
-              </Tweet>
+              <Tweet
+                pinned
+                avatar="EI Avatar.png"
+                profileName="Every Interaction"
+                username="EveryInteract"
+                date="2 Mar 2015"
+                text="We've made some more resources for all your wonderful 
+                    #design folk
+                      everyinteraction.com/resources/  #webdesign  #UI"
+                img="img.png"
+                retweets={17}
+                likesCount={47}
+                liked
+              />
+              <Tweet
+                avatar="EI Avatar.png"
+                profileName="Every Interaction"
+                date="23h"
+                text="Our new website concept; Taking you from... @ Every Interaction instagram.com/p/BNFGrfhBP3M"
+                comments={1}
+                retweets={4}
+                likesCount={2}
+              />
+              <Tweet
+                avatar="EI Avatar.png"
+                profileName="Every Interaction"
+                date="Nov 18"
+                text="Variable Web Fonts are coming and will open a world of opportunities for weight use online"
+                hasArticle
+                articleImage="Article image.png"
+                articleTitle="The Future of Web Fonts"
+                articleDescription="We love typefaces. They give our sites and applications personalized feel. They
+                 convey the information and tell a story. They establish information hierarchy. But they're..."
+                articleLink="vilijamis.com"
+              />
             </Feed>
           </div>
         </MainSection>

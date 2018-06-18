@@ -68,7 +68,7 @@ const ProfileCard = props => {
   return (
     <ProfileCardWrapper>
       <ProfileName>
-        {profileName} {verified === true && <img src={verifiedIcon} alt="" />}
+        {profileName} {verified && <img src={verifiedIcon} alt="" />}
       </ProfileName>
       <Username>
         @{username} <Following>Follows you</Following>
