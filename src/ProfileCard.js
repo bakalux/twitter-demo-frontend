@@ -45,6 +45,10 @@ const CardListItem = styled.span`
   margin-bottom: 16px;
 `;
 
+const LocationWrapper = CardListItem.extend``;
+const ProfileLinkWrapper = CardListItem.extend``;
+const JoinedWrapper = CardListItem.extend``;
+
 const ProfileLink = styled.a`
   color: #1da1f2;
   text-decoration: none;
@@ -75,16 +79,16 @@ const ProfileCard = props => {
         @{username} {following && <Following>Follows you</Following>}
       </Username>
       <Description>{description}</Description>
-      <CardListItem>
+      <LocationWrapper>
         <img src={locationIcon} alt="location" /> London, UK
-      </CardListItem>
-      <CardListItem>
+      </LocationWrapper>
+      <ProfileLinkWrapper>
         <img src={linkIcon} alt="link" />{" "}
         <ProfileLink href={`https://${profileLink}`}>{profileLink}</ProfileLink>
-      </CardListItem>
-      <CardListItem>
+      </ProfileLinkWrapper>
+      <JoinedWrapper>
         <img src={joinedIcon} alt="joined" /> Joined {joined}
-      </CardListItem>
+      </JoinedWrapper>
       <TweetButton>Tweet to</TweetButton>
       <TweetButton>Message</TweetButton>
     </ProfileCardWrapper>
