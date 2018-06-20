@@ -62,7 +62,8 @@ const ProfileCard = props => {
     description,
     profileLink,
     joined,
-    verified
+    verified,
+    following
   } = props;
 
   return (
@@ -71,7 +72,7 @@ const ProfileCard = props => {
         {profileName} {verified && <img src={verifiedIcon} alt="" />}
       </ProfileName>
       <Username>
-        @{username} <Following>Follows you</Following>
+        @{username} {following && <Following>Follows you</Following>}
       </Username>
       <Description>{description}</Description>
       <CardListItem>

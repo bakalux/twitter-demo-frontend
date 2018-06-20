@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StatisticsWrapper = styled.div`
   display: inline-block;
-  margin-left: 25%;
+  margin-left: 24%;
   text-align: center;
   font-weight: bold;
   margin-right: 9%;
