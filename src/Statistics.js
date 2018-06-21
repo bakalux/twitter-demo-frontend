@@ -3,10 +3,10 @@ import styled from "styled-components";
 
 const StatisticsWrapper = styled.div`
   display: inline-block;
-  margin-left: 24%;
+  margin-left: 19%;
   text-align: center;
   font-weight: bold;
-  margin-right: 9%;
+  margin-right: 19%;
 `;
 
 const StatLink = styled.a`

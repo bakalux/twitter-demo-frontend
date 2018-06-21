@@ -6,6 +6,9 @@ import Statistics from "./Statistics";
 import TweetButton from "./TweetButton";
 import ProfileCard from "./ProfileCard";
 import Tweet from "./Tweet";
+import Followers from "./Followers";
+import Photos from "./Photos";
+import WhoToFollow from "./WhoToFollow";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -61,7 +64,7 @@ const Feed = styled.section`
   display: inline-block;
   background-color: #ffffff;
   padding: 0;
-  margin-left: 15%;
+  margin-left: 5%;
 `;
 
 const FeedHeader = styled.section`
@@ -102,8 +105,10 @@ const ProfilePage = () => {
               verified
               following
             />
+            <Followers />
+            <Photos />
           </div>
-          <div className="col-lg-5 col-xl-5">
+          <div className="col-lg-6 col-xl-6">
             <Feed>
               <FeedHeader>
                 <NavLink active>Tweets</NavLink>
@@ -112,7 +117,7 @@ const ProfilePage = () => {
               </FeedHeader>
               <Tweet
                 pinned
-                avatar="EI Avatar.png"
+                avatar="EI-Avatar.png"
                 profileName="Every Interaction"
                 username="EveryInteract"
                 date="2 Mar 2015"
@@ -125,7 +130,7 @@ const ProfilePage = () => {
                 liked
               />
               <Tweet
-                avatar="EI Avatar.png"
+                avatar="EI-Avatar.png"
                 profileName="Every Interaction"
                 date="23h"
                 text="Our new website concept; Taking you from... @ Every Interaction instagram.com/p/BNFGrfhBP3M"
@@ -134,18 +139,21 @@ const ProfilePage = () => {
                 likesCount={2}
               />
               <Tweet
-                avatar="EI Avatar.png"
+                avatar="EI-Avatar.png"
                 profileName="Every Interaction"
                 date="Nov 18"
                 text="Variable Web Fonts are coming and will open a world of opportunities for weight use online"
                 hasArticle
-                articleImage="Article image.png"
+                articleImage="article-image.png"
                 articleTitle="The Future of Web Fonts"
                 articleDescription="We love typefaces. They give our sites and applications personalized feel. They
                  convey the information and tell a story. They establish information hierarchy. But they're..."
                 articleLink="vilijamis.com"
               />
             </Feed>
+          </div>
+          <div className="col-xl-3 col-lg-3">
+            <WhoToFollow />
           </div>
         </div>
       </MainSection>

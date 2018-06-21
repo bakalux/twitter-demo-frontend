@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import pinnedIcon from "./icons/Icon_ Pinned.svg";
-import commentIcon from "./icons/Icon_ Comments.svg";
-import retweetIcon from "./icons/Icon_ Retweet.svg";
-import likedIcon from "./icons/Icon_  Liked.svg";
-import notLikedIcon from "./icons/Icon_  notLiked.svg";
-import envelopeIcon from "./icons/Icon_ Envelope.svg";
+import pinnedIcon from "./icons/icon-pinned.svg";
+import commentIcon from "./icons/icon-comments.svg";
+import retweetIcon from "./icons/icon-retweet.svg";
+import likedIcon from "./icons/icon-liked.svg";
+import notLikedIcon from "./icons/icon-not-liked.svg";
+import envelopeIcon from "./icons/icon-envelope.svg";
 
 const TweetWrapper = styled.section`
   display: block;
@@ -25,6 +25,7 @@ const TweetAvatar = styled.img`
   width: 50px;
   display: inline-block;
   vertical-align: top;
+  max-width: 9%;
 
   &:hover {
     cursor: pointer;
@@ -34,7 +35,7 @@ const TweetAvatar = styled.img`
 const TweetContent = styled.section`
   display: inline-block;
   padding: 10px 10px;
-  width: 80%;
+  width: 89%;
 `;
 
 const TweetInfo = styled.span`
@@ -149,8 +150,8 @@ const Tweet = props => {
       <TweetContent>
         <TweetInfo>
           <TweetProfileName>{profileName} </TweetProfileName>
-          <TweetUsername>@{username} </TweetUsername>
-          <TweetDate>{date}</TweetDate>
+          <TweetUsername>@{username} &bull;</TweetUsername>
+          <TweetDate> {date}</TweetDate>
         </TweetInfo>
         <TweetText>
           {text}

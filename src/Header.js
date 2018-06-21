@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import homeIcon from "./icons/Icon_Home.svg";
-import momentsIcon from "./icons/Icon_Moments.svg";
-import notificationsIcon from "./icons/Icon_Notifications.svg";
-import messagesIcon from "./icons/Icon_ Messages.svg";
-import twitterLogo from "./icons/Icon_TwitterLogo.svg";
-import searchIcon from "./icons/Icon_Magnifier.svg";
+import homeIcon from "./icons/icon-home.svg";
+import momentsIcon from "./icons/icon-moments.svg";
+import notificationsIcon from "./icons/icon-notifications.svg";
+import messagesIcon from "./icons/icon-messages.svg";
+import twitterLogo from "./icons/icon-twitter-logo.svg";
+import searchIcon from "./icons/icon-magnifier.svg";
 import TweetButton from "./TweetButton";
 
 const Nav = styled.ul`
@@ -81,7 +81,7 @@ const Header = () => {
       </Nav>
       <TwitterIcon src={twitterLogo} alt="Twitter logo" />
       <Search placeholder="Search Twitter" />
-      <HeaderAvatar src={process.env.PUBLIC_URL + "/img/EI Avatar.png"} />
+      <HeaderAvatar src={process.env.PUBLIC_URL + "/img/EI-Avatar.png"} />
       <TweetButton>Tweet</TweetButton>
     </div>
   );

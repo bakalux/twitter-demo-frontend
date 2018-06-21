@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import verifiedIcon from "./icons/Tick.svg";
-import locationIcon from "./icons/Icon_ Location.svg";
-import linkIcon from "./icons/Icon_ Link.svg";
-import joinedIcon from "./icons/Icon_ Joined.svg";
+import verifiedIcon from "./icons/icon-verified.svg";
+import locationIcon from "./icons/icon-location.svg";
+import linkIcon from "./icons/icon-link.svg";
+import joinedIcon from "./icons/icon-joined.svg";
 
 import TweetButton from "./TweetButton";
 
