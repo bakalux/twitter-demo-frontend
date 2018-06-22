@@ -28,7 +28,7 @@ const Followers = () => {
   return (
     <FollowersWrapper>
       <FollowersTitle>
-        <img src={followersIcon} alt="follower"/>  6 Followers you know
+        <img src={followersIcon} alt="follower" /> 6 Followers you know
       </FollowersTitle>
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
