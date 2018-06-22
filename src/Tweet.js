@@ -73,12 +73,19 @@ const TweetFooter = styled.span`
 const TweetFooterItem = styled.span`
   display: inline-block;
   margin-right: 10%;
-  color: ${props => (props.liked ? "red" : "inherit")};
 
   &:hover {
     cursor: pointer;
   }
 `;
+
+const TweetLike = TweetFooterItem.extend`
+  color: ${props => (props.liked ? "red" : "inherit")};
+`;
+
+const TweetComment = TweetFooterItem.extend``;
+const TweetRetweet = TweetFooterItem.extend``;
+const TweetEnvelope = TweetFooterItem.extend``;
 
 const TweetArticle = styled.div`
   display: flex;
@@ -173,20 +180,20 @@ const Tweet = props => {
           </TweetArticle>
         )}
         <TweetFooter>
-          <TweetFooterItem>
+          <TweetComment>
             <img src={commentIcon} alt="comment" />
             {comments}
-          </TweetFooterItem>
-          <TweetFooterItem>
+          </TweetComment>
+          <TweetRetweet>
             <img src={retweetIcon} alt="retweet" /> {retweets}
-          </TweetFooterItem>
-          <TweetFooterItem liked={liked}>
+          </TweetRetweet>
+          <TweetLike liked={liked}>
             <img src={liked ? likedIcon : notLikedIcon} alt="like" />
             {likesCount}
-          </TweetFooterItem>
-          <TweetFooterItem>
+          </TweetLike>
+          <TweetEnvelope>
             <img src={envelopeIcon} alt="envelope" />
-          </TweetFooterItem>
+          </TweetEnvelope>
         </TweetFooter>
       </TweetContent>
     </TweetWrapper>

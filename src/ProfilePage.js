@@ -47,8 +47,8 @@ const MainAvatar = styled.img`
   width: 200px;
   border-radius: 50%;
   position: absolute;
-  left: 12%;
-  top: 42%;
+  left: 12vw;
+  top: 43vh;
 
   &:hover {
     cursor: pointer;
