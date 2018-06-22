@@ -11,12 +11,13 @@ const WhoToFollowWrapper = styled.section`
   background-color: #fff;
   padding: 2% 2%;
 `;
-const Naming = styled.span`
+const Naming = styled.h4`
   font-weight: bold;
   display: inline-block;
   text-align: left;
   padding: 10px 10px;
   color: black;
+  margin: 0;
 `;
 
 const WhoToFollow = () => {

@@ -86,11 +86,11 @@ const ProfilePage = () => {
           <MainAvatar src={process.env.PUBLIC_URL + "/img/Avatar.png"} />
         </ProfileImage>
         <Statistics
-          tweets="8081"
-          following="721"
-          followers="1815"
-          likes="460"
-          lists="2"
+          tweets={8081}
+          following={721}
+          followers={1815}
+          likes={460}
+          lists={2}
         />
         <TweetButton follow>Follow</TweetButton>
       </StatBar>
@@ -156,8 +156,8 @@ const ProfilePage = () => {
           </div>
           <div className="col-xl-3 col-lg-3">
             <WhoToFollow />
-            <Trends/>
-            <Footer/>
+            <Trends />
+            <Footer />
           </div>
         </div>
       </MainSection>

@@ -14,7 +14,7 @@ const ProfileCardWrapper = styled.section`
   margin-top: 15%;
 `;
 
-const ProfileName = styled.a`
+const ProfileName = styled.h3`
   display: block;
   font-size: 1.5rem;
   color: #14171a;

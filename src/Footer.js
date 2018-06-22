@@ -6,14 +6,21 @@ const FooterText = styled.p`
   margin-top: 20px;
 `;
 const FooterLink = styled.a`
-&:hover{
-  cursor: pointer;
-}
+  &:hover {
+    cursor: pointer;
+    color: #505866;
+  }
 `;
 
-
 const Footer = () => {
-  return <FooterText>&copy; <FooterLink>2018 Twitter</FooterLink> <FooterLink>About</FooterLink> <FooterLink>Help</FooterLink> <FooterLink>Center</FooterLink> <FooterLink>Terms</FooterLink> <FooterLink>Privacy policy</FooterLink> <FooterLink>Cookies</FooterLink> <FooterLink>Ads info</FooterLink></FooterText>
-}
+  return (
+    <FooterText>
+      &copy; 2018 Twitter <FooterLink>About</FooterLink>{" "}
+      <FooterLink>Help</FooterLink> <FooterLink>Center</FooterLink>{" "}
+      <FooterLink>Terms</FooterLink> <FooterLink>Privacy policy</FooterLink>{" "}
+      <FooterLink>Cookies</FooterLink> <FooterLink>Ads info</FooterLink>
+    </FooterText>
+  );
+};
 
 export default Footer;
