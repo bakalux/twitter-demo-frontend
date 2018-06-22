@@ -30,7 +30,7 @@ const Followers = () => {
       <FollowersTitle>
         <img src={followersIcon} alt="follower"/>  6 Followers you know
       </FollowersTitle>
-      <FollowerAvatar src={process.env.PUBLIC_URL + "photo"} />
+      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-3.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-4.png"} />

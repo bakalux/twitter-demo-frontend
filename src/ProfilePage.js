@@ -9,6 +9,8 @@ import Tweet from "./Tweet";
 import Followers from "./Followers";
 import Photos from "./Photos";
 import WhoToFollow from "./WhoToFollow";
+import Trends from "./Trends";
+import Footer from "./Footer";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -154,6 +156,8 @@ const ProfilePage = () => {
           </div>
           <div className="col-xl-3 col-lg-3">
             <WhoToFollow />
+            <Trends/>
+            <Footer/>
           </div>
         </div>
       </MainSection>

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import TitleLink from "./TitleLink";
 import TweetButton from "./TweetButton";
 
+import verifiedIcon from "./icons/icon-verified.svg";
+
 import peopleIcon from "./icons/icon-people.svg";
 
 const WhoToFollowWrapper = styled.section`
@@ -54,7 +56,7 @@ const WhoToFollow = () => {
           src={process.env.PUBLIC_URL + "/img/avatar-follow-1.png"}
         />
         <AccountInfo>
-          <AccountName>AppleInsider </AccountName>
+          <AccountName>AppleInsider <img src={verifiedIcon} alt="verified"/></AccountName>
           <AccountUsername>@appleinsider</AccountUsername>
           <ButtonWrapper>
             <TweetButton follow wide>
