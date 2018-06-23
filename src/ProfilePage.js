@@ -98,6 +98,10 @@ const ProfilePage = () => {
     <Wrapper>
       <Helmet>
         <title>Twitter | Every Interaction</title>
+        <meta
+          name="description"
+          content="The latest tweets from Every Interaction"
+        />
       </Helmet>
       <Header />
       <BitMap src={process.env.PUBLIC_URL + "/img/bitmap.png"} />
