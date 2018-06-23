@@ -31,12 +31,12 @@ const Followers = () => {
         <img src={followersIcon} alt="follower" /> 6 Followers you know
       </StyledLink>
       <ImagesWrapper>
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-3.png"} />
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-4.png"} />
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-5.png"} />
-      <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-6.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-3.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-4.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-5.png"} />
+        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-6.png"} />
       </ImagesWrapper>
     </FollowersWrapper>
   );

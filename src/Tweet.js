@@ -129,7 +129,6 @@ const ArticleLink = styled.a`
   font-size: 0.8rem;
 `;
 
-
 const Tweet = props => {
   const {
     pinned,

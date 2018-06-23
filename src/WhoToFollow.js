@@ -23,7 +23,8 @@ const Naming = styled.h4`
 const WhoToFollow = () => {
   return (
     <WhoToFollowWrapper>
-      <Naming>Who to follow</Naming>&bull; <StyledLink to="/">Refresh</StyledLink>&bull;{" "}
+      <Naming>Who to follow</Naming>&bull;{" "}
+      <StyledLink to="/">Refresh</StyledLink>&bull;{" "}
       <StyledLink to="/view_all">View All</StyledLink>
       <RecommendedAccount
         accountName="AppleInsider"
