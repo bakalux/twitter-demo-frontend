@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import StyledLink from "./StyledLink";
+
 import followersIcon from "./icons/icon-followers.svg";
 
 const FollowersWrapper = styled.section`
@@ -9,10 +11,8 @@ const FollowersWrapper = styled.section`
   margin-top: 15%;
 `;
 
-const FollowersTitle = styled.a`
+const ImagesWrapper = styled.div`
   display: block;
-  color: #1da1f2;
-  padding: 1% 1%;
 `;
 
 const FollowerAvatar = styled.img`
@@ -27,15 +27,17 @@ const FollowerAvatar = styled.img`
 const Followers = () => {
   return (
     <FollowersWrapper>
-      <FollowersTitle>
+      <StyledLink to="/followers_you_know">
         <img src={followersIcon} alt="follower" /> 6 Followers you know
-      </FollowersTitle>
+      </StyledLink>
+      <ImagesWrapper>
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-3.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-4.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-5.png"} />
       <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-6.png"} />
+      </ImagesWrapper>
     </FollowersWrapper>
   );
 };

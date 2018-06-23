@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TitleLink from "./TitleLink";
+import TitleLink from "./StyledLink";
 import Trend from "./Trend";
 
 const TrendsWrapper = styled.section`
@@ -22,7 +22,7 @@ const Trends = () => {
   return (
     <TrendsWrapper>
       <Naming>United Kingdom Trends </Naming>&bull;{" "}
-      <TitleLink>Change</TitleLink>
+      <TitleLink to="/change">Change</TitleLink>
       <Trend hashTag="#BringYourDogToWorkDay" to="" />
       <Trend hashTag="#FridayFeeling" tweetCount={12100} />
       <Trend

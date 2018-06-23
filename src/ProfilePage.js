@@ -12,6 +12,7 @@ import Photos from "./Photos";
 import WhoToFollow from "./WhoToFollow";
 import Trends from "./Trends";
 import Footer from "./Footer";
+import HashTag from "./HashTag";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -147,7 +148,7 @@ const ProfilePage = () => {
                 date="2 Mar 2015"
                 text="We've made some more resources for all your wonderful 
                     #design folk
-                      everyinteraction.com/resources/  #webdesign  #UI"
+                      <a href='https://everyinteraction.com/resources/'>everyinteraction.com/resources/</a>  <HashTag>#webdesign</HashTag>  #UI"
                 img="img.png"
                 retweets={17}
                 likesCount={47}
@@ -156,6 +157,7 @@ const ProfilePage = () => {
               <Tweet
                 avatar="EI-Avatar.png"
                 profileName="Every Interaction"
+                username="EveryInteract"
                 date="23h"
                 text="Our new website concept; Taking you from... @ Every Interaction instagram.com/p/BNFGrfhBP3M"
                 comments={1}
@@ -165,6 +167,7 @@ const ProfilePage = () => {
               <Tweet
                 avatar="EI-Avatar.png"
                 profileName="Every Interaction"
+                username="EveryInteract"
                 date="Nov 18"
                 text="Variable Web Fonts are coming and will open a world of opportunities for weight use online"
                 hasArticle

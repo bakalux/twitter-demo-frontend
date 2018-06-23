@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import TitleLink from "./TitleLink";
+import StyledLink from "./StyledLink";
 
 import RecommendedAccount from "./RecommendedAccount";
 
@@ -23,8 +23,8 @@ const Naming = styled.h4`
 const WhoToFollow = () => {
   return (
     <WhoToFollowWrapper>
-      <Naming>Who to follow</Naming>&bull; <TitleLink>Refresh</TitleLink>&bull;{" "}
-      <TitleLink>View All</TitleLink>
+      <Naming>Who to follow</Naming>&bull; <StyledLink to="/">Refresh</StyledLink>&bull;{" "}
+      <StyledLink to="/view_all">View All</StyledLink>
       <RecommendedAccount
         accountName="AppleInsider"
         accountUsername="appleinsider"
@@ -41,9 +41,9 @@ const WhoToFollow = () => {
         accountUsername="epiphanysearch"
         accountImage="Avatar-follow-3.png"
       />
-      <TitleLink>
+      <StyledLink to="/find_people_you_know">
         <img src={peopleIcon} alt="people" /> Find people you know
-      </TitleLink>
+      </StyledLink>
     </WhoToFollowWrapper>
   );
 };

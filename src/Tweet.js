@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import HashTag from "./HashTag";
+
 import pinnedIcon from "./icons/icon-pinned.svg";
 import commentIcon from "./icons/icon-comments.svg";
 import retweetIcon from "./icons/icon-retweet.svg";
@@ -127,6 +129,7 @@ const ArticleLink = styled.a`
   font-size: 0.8rem;
 `;
 
+
 const Tweet = props => {
   const {
     pinned,
@@ -161,23 +164,25 @@ const Tweet = props => {
           <TweetDate> {date}</TweetDate>
         </TweetInfo>
         <TweetText>
-          {text}
+          <div dangerouslySetInnerHTML={{ __html: text }} />
           {img && (
             <TweetImg src={process.env.PUBLIC_URL + `/img/${img}`} alt="Img" />
           )}
         </TweetText>
 
         {hasArticle && (
-          <TweetArticle>
-            <ArticleImage
-              src={process.env.PUBLIC_URL + `/img/${articleImage}`}
-            />
-            <ArticleContent>
-              <ArticleTitle>{articleTitle}</ArticleTitle>
-              <ArticleDescription>{articleDescription}</ArticleDescription>
-              <ArticleLink>{articleLink}</ArticleLink>
-            </ArticleContent>
-          </TweetArticle>
+          <a href={articleLink}>
+            <TweetArticle>
+              <ArticleImage
+                src={process.env.PUBLIC_URL + `/img/${articleImage}`}
+              />
+              <ArticleContent>
+                <ArticleTitle>{articleTitle}</ArticleTitle>
+                <ArticleDescription>{articleDescription}</ArticleDescription>
+                <ArticleLink>{articleLink}</ArticleLink>
+              </ArticleContent>
+            </TweetArticle>
+          </a>
         )}
         <TweetFooter>
           <TweetComment>
