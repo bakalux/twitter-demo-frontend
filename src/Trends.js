@@ -23,7 +23,7 @@ const Trends = () => {
     <TrendsWrapper>
       <Naming>United Kingdom Trends </Naming>&bull;{" "}
       <TitleLink>Change</TitleLink>
-      <Trend hashTag="#BringYourDogToWorkDay" />
+      <Trend hashTag="#BringYourDogToWorkDay" to="" />
       <Trend hashTag="#FridayFeeling" tweetCount={12100} />
       <Trend
         hashTag="#BrexitAnniversary"

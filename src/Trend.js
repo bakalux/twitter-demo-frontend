@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const TrendWrapper = styled.section`
   padding: 3% 3%;
   display: block;
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
+  text-decoration: none;
   font-weight: bold;
   color: #1da1f2;
 
@@ -27,7 +29,7 @@ const Trend = props => {
   const { hashTag, tweetCount, description } = props;
   return (
     <TrendWrapper>
-      <StyledLink>{hashTag}</StyledLink>
+      <StyledLink to={`/search?q=${hashTag}`}>{hashTag}</StyledLink>
       {tweetCount && <TweetCount>{tweetCount} Tweets</TweetCount>}
       {description && <TrendDescription>{description}</TrendDescription>}
     </TrendWrapper>

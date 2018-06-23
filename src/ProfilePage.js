@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-import Header, { NavLink } from "./Header";
+import Header from "./Header";
 import Statistics from "./Statistics";
 import TweetButton from "./TweetButton";
 import ProfileCard from "./ProfileCard";
@@ -69,11 +70,28 @@ const Feed = styled.section`
   margin-left: 5%;
 `;
 
-const FeedHeader = styled.section`
+const FeedHeader = styled.div`
   display: block;
   border-bottom: solid 1px #e1e8ed;
   color: #1da1f2;
   padding: 10px 10px;
+`;
+
+const FeedHeaderLink = styled(NavLink)`
+  text-decoration: none;
+  margin-right: 2%;
+  font-weight: bold;
+  font-weight: bold;
+  font-family: "Helvetica", sans-serif;
+  color: #1da1f2;
+
+  &:hover {
+    color: black;
+    cursor: pointer;
+  }
+  &.active {
+    color: black;
+  }
 `;
 
 const ProfilePage = () => {
@@ -113,9 +131,13 @@ const ProfilePage = () => {
           <div className="col-lg-6 col-xl-6">
             <Feed>
               <FeedHeader>
-                <NavLink active>Tweets</NavLink>
-                <NavLink>Tweets & replies</NavLink>
-                <NavLink>Media</NavLink>
+                <FeedHeaderLink active to="/EveryInteract">
+                  Tweets
+                </FeedHeaderLink>
+                <FeedHeaderLink to="/EveryInteract/with_replies">
+                  Tweets & replies
+                </FeedHeaderLink>
+                <FeedHeaderLink to="/EveryInteract/media">Media</FeedHeaderLink>
               </FeedHeader>
               <Tweet
                 pinned
@@ -165,5 +187,4 @@ const ProfilePage = () => {
   );
 };
 
-export { TweetButton, NavLink };
 export default ProfilePage;

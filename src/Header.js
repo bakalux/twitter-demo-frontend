@@ -13,7 +13,7 @@ const Nav = styled.ul`
   margin-left: 9%;
 `;
 
-const NavLink = styled.li`
+const NavigationLink = styled.li`
   font-weight: bold;
   display: inline-block;
   text-align: left;
@@ -66,18 +66,18 @@ const Header = () => {
   return (
     <div>
       <Nav>
-        <NavLink>
+        <NavigationLink>
           <img src={homeIcon} alt="Home" /> Home
-        </NavLink>
-        <NavLink>
+        </NavigationLink>
+        <NavigationLink>
           <img src={momentsIcon} alt="Moments" /> Moments
-        </NavLink>
-        <NavLink>
+        </NavigationLink>
+        <NavigationLink>
           <img src={notificationsIcon} alt="Notifications" /> Notifications
-        </NavLink>
-        <NavLink>
+        </NavigationLink>
+        <NavigationLink>
           <img src={messagesIcon} alt="Messages" /> Messages
-        </NavLink>
+        </NavigationLink>
       </Nav>
       <TwitterIcon src={twitterLogo} alt="Twitter logo" />
       <Search placeholder="Search Twitter" />
@@ -87,5 +87,5 @@ const Header = () => {
   );
 };
 
-export { NavLink };
+export { NavigationLink };
 export default Header;
