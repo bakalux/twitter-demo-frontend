@@ -3,7 +3,7 @@ import styled from "styled-components";
 import TitleLink from "./StyledLink";
 import Trend from "./Trend";
 
-const TrendsWrapper = styled.section`
+const TrendsWrapper = styled.ul`
   background-color: #fff;
   padding: 2% 2%;
   margin-top: 4%;

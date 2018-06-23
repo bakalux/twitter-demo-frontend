@@ -21,6 +21,7 @@ const LinkValue = styled.span`
   font-size: 15px;
   color: ${props => (props.active ? "#1DA1F2" : "inherit")};
 `;
+
 const StatLink = styled(NavLink)`
   padding: 10px 25px;
   display: inline-block;

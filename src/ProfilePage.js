@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 import Header from "./Header";
 import Statistics from "./Statistics";
@@ -12,7 +13,6 @@ import Photos from "./Photos";
 import WhoToFollow from "./WhoToFollow";
 import Trends from "./Trends";
 import Footer from "./Footer";
-import HashTag from "./HashTag";
 
 const Wrapper = styled.section`
   width: 100%;
@@ -82,8 +82,6 @@ const FeedHeaderLink = styled(NavLink)`
   text-decoration: none;
   margin-right: 2%;
   font-weight: bold;
-  font-weight: bold;
-  font-family: "Helvetica", sans-serif;
   color: #1da1f2;
 
   &:hover {
@@ -98,6 +96,9 @@ const FeedHeaderLink = styled(NavLink)`
 const ProfilePage = () => {
   return (
     <Wrapper>
+      <Helmet>
+        <title>Twitter | Every Interaction</title>
+      </Helmet>
       <Header />
       <BitMap src={process.env.PUBLIC_URL + "/img/bitmap.png"} />
       <StatBar>
@@ -148,7 +149,7 @@ const ProfilePage = () => {
                 date="2 Mar 2015"
                 text="We've made some more resources for all your wonderful 
                     #design folk
-                      <a href='https://everyinteraction.com/resources/'>everyinteraction.com/resources/</a>  <HashTag>#webdesign</HashTag>  #UI"
+                      <a href='https://everyinteraction.com/resources/'>everyinteraction.com/resources/</a> #webdesign  #UI"
                 img="img.png"
                 retweets={17}
                 likesCount={47}
@@ -159,7 +160,7 @@ const ProfilePage = () => {
                 profileName="Every Interaction"
                 username="EveryInteract"
                 date="23h"
-                text="Our new website concept; Taking you from... @ Every Interaction instagram.com/p/BNFGrfhBP3M"
+                text="Our new website concept; Taking you from... @ Every Interaction <a href='https://instagram.com/p/BNFGrfhBP3M'>instagram.com/p/BNFGrfhBP3M</a>"
                 comments={1}
                 retweets={4}
                 likesCount={2}

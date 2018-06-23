@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 import StyledLink from "./StyledLink";
-
 import RecommendedAccount from "./RecommendedAccount";
 
 import peopleIcon from "./icons/icon-people.svg";
 
-const WhoToFollowWrapper = styled.section`
+const WhoToFollowWrapper = styled.ul`
   background-color: #fff;
   padding: 2% 2%;
 `;
+
 const Naming = styled.h4`
   font-weight: bold;
   display: inline-block;

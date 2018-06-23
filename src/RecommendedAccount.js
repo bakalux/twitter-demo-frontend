@@ -6,7 +6,7 @@ import TweetButton from "./TweetButton";
 import verifiedIcon from "./icons/icon-verified.svg";
 import deleteIcon from "./icons/icon-delete.svg";
 
-const RecommendedAccountWrapper = styled.section`
+const RecommendedAccountWrapper = styled.li`
   display: block;
   border-bottom: solid 1px #e1e8ed;
   padding: 4% 2%;

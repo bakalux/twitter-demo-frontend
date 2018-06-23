@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-import HashTag from "./HashTag";
-
 import pinnedIcon from "./icons/icon-pinned.svg";
 import commentIcon from "./icons/icon-comments.svg";
 import retweetIcon from "./icons/icon-retweet.svg";
@@ -127,6 +125,7 @@ const ArticleLink = styled.a`
   display: block;
   color: #707e88;
   font-size: 0.8rem;
+  text-decoration: none;
 `;
 
 const Tweet = props => {
@@ -170,18 +169,16 @@ const Tweet = props => {
         </TweetText>
 
         {hasArticle && (
-          <a href={articleLink}>
-            <TweetArticle>
-              <ArticleImage
-                src={process.env.PUBLIC_URL + `/img/${articleImage}`}
-              />
-              <ArticleContent>
-                <ArticleTitle>{articleTitle}</ArticleTitle>
-                <ArticleDescription>{articleDescription}</ArticleDescription>
-                <ArticleLink>{articleLink}</ArticleLink>
-              </ArticleContent>
-            </TweetArticle>
-          </a>
+          <TweetArticle>
+            <ArticleImage
+              src={process.env.PUBLIC_URL + `/img/${articleImage}`}
+            />
+            <ArticleContent>
+              <ArticleTitle>{articleTitle}</ArticleTitle>
+              <ArticleDescription>{articleDescription}</ArticleDescription>
+              <ArticleLink>{articleLink}</ArticleLink>
+            </ArticleContent>
+          </TweetArticle>
         )}
         <TweetFooter>
           <TweetComment>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import photosIcon from "./icons/icon-videos.svg";
 import TitleLink from "./StyledLink";
+
 const PhotosWrapper = styled.section`
   display: inline-block;
   margin-left: 2%;

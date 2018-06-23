@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const TrendWrapper = styled.section`
+const TrendWrapper = styled.li`
   padding: 3% 3%;
   display: block;
 `;
