@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const StatisticsWrapper = styled.div`
   display: inline-block;
-  margin-left: 19%;
+  margin-left: 15%;
   text-align: center;
   font-weight: bold;
   margin-right: 19%;

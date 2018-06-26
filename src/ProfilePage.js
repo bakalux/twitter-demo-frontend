@@ -32,11 +32,15 @@ const StatBar = styled.div`
   background-color: #ffffff;
   box-shadow: 0px 2px 2px #b0b8be;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-height: 65px;
 `;
 
 const ProfileImage = styled.div`
   display: inline-block;
   margin-left: 9%;
+  margin-top: -5%;
 
   &:hover {
     cursor: pointer;
@@ -48,9 +52,6 @@ const MainAvatar = styled.img`
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  position: absolute;
-  left: 12vw;
-  top: 43vh;
 
   &:hover {
     cursor: pointer;
