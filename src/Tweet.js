@@ -103,7 +103,7 @@ const ArticleImage = styled.img`
   height: 100%;
 `;
 
-const ArticleContent = styled.a`
+const ArticleContent = styled.section`
   padding: 10px 10px;
   display: inline-block;
 `;

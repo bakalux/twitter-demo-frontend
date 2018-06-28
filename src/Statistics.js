@@ -19,7 +19,6 @@ const LinkValue = styled.span`
   margin-top: 7px;
   display: block;
   font-size: 15px;
-  color: ${props => (props.active ? "#1DA1F2" : "inherit")};
 `;
 
 const StatLink = styled(NavLink)`
@@ -53,9 +52,9 @@ const Statistics = props => {
   const { tweets, following, followers, likes, lists } = props;
   return (
     <StatisticsWrapper>
-      <StatLink to="/EveryInteract" active>
+      <StatLink to="/EveryInteract" className="active">
         <LinkLabel>Tweets</LinkLabel>
-        <LinkValue active>{tweets}</LinkValue>
+        <LinkValue>{tweets}</LinkValue>
       </StatLink>
       <StatLink to="EveryInteract/following">
         <LinkLabel>Following</LinkLabel>

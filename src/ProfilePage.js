@@ -24,7 +24,6 @@ const Wrapper = styled.section`
 
 const BitMap = styled.img`
   width: 100%;
-  height: 45vh;
 `;
 
 const StatBar = styled.div`
@@ -138,7 +137,7 @@ const ProfilePage = () => {
           <div className="col-lg-6 col-xl-6">
             <Feed>
               <FeedHeader>
-                <FeedHeaderLink active to="/EveryInteract">
+                <FeedHeaderLink className="active" to="/EveryInteract">
                   Tweets
                 </FeedHeaderLink>
                 <FeedHeaderLink to="/EveryInteract/with_replies">
