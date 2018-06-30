@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const TrendWrapper = styled.li`
   padding: 3% 3%;
@@ -25,15 +25,22 @@ const TrendDescription = styled.span`
 
 const TweetCount = TrendDescription.extend``;
 
-const Trend = props => {
-  const { hashTag, tweetCount, description } = props;
-  return (
-    <TrendWrapper>
-      <StyledLink to={`/search?q=${hashTag}`}>{hashTag}</StyledLink>
-      {tweetCount && <TweetCount>{tweetCount} Tweets</TweetCount>}
-      {description && <TrendDescription>{description}</TrendDescription>}
-    </TrendWrapper>
-  );
-};
+const Trend = ({ hashTag, tweetCount, description }) => (
+  <TrendWrapper>
+    <StyledLink to={`/search?q=${hashTag}`}>
+      {hashTag}
+    </StyledLink>
+    {tweetCount && (
+    <TweetCount>
+      {`${tweetCount} Tweets`}
+    </TweetCount>
+    )}
+    {description && (
+    <TrendDescription>
+      {description}
+    </TrendDescription>
+    )}
+  </TrendWrapper>
+);
 
 export default Trend;

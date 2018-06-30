@@ -1,9 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-
-import StyledLink from "./StyledLink";
-
-import followersIcon from "./icons/icon-followers.svg";
+import React from 'react';
+import styled from 'styled-components';
+import StyledLink from './StyledLink';
+import followersIcon from './icons/icon-followers.svg';
 
 const FollowersWrapper = styled.section`
   display: inline-block;
@@ -24,22 +22,24 @@ const FollowerAvatar = styled.img`
   }
 `;
 
-const Followers = () => {
-  return (
-    <FollowersWrapper>
-      <StyledLink to="/followers_you_know">
-        <img src={followersIcon} alt="follower" /> 6 Followers you know
-      </StyledLink>
-      <ImagesWrapper>
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-1.png"} />
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-2.png"} />
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-3.png"} />
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-4.png"} />
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-5.png"} />
-        <FollowerAvatar src={process.env.PUBLIC_URL + "/img/follower-6.png"} />
-      </ImagesWrapper>
-    </FollowersWrapper>
-  );
-};
+const Followers = ({ followers }) => (
+  <FollowersWrapper>
+    <StyledLink to="/followers-you-know">
+      <img src={followersIcon} alt="follower" />
+      {' '}
+      {followers.length}
+      {' '}
+      Followers you know
+    </StyledLink>
+    <ImagesWrapper>
+      {followers.map((follower, i) => (
+        <FollowerAvatar
+          key={i}
+          src={`${process.env.PUBLIC_URL}/img/${follower.src}`}
+        />
+      ))}
+    </ImagesWrapper>
+  </FollowersWrapper>
+);
 
 export default Followers;

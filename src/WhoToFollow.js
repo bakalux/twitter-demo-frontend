@@ -1,10 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import StyledLink from "./StyledLink";
-import RecommendedAccount from "./RecommendedAccount";
+import StyledLink from './StyledLink';
+import RecommendedAccount from './RecommendedAccount';
 
-import peopleIcon from "./icons/icon-people.svg";
+import peopleIcon from './icons/icon-people.svg';
+import recommendedAccounts from './data/recommendedAccounts';
 
 const WhoToFollowWrapper = styled.ul`
   background-color: #fff;
@@ -20,33 +21,33 @@ const Naming = styled.h4`
   margin: 0;
 `;
 
-const WhoToFollow = () => {
-  return (
-    <WhoToFollowWrapper>
-      <Naming>Who to follow</Naming>&bull;{" "}
-      <StyledLink to="/">Refresh</StyledLink>&bull;{" "}
-      <StyledLink to="/view_all">View All</StyledLink>
+const WhoToFollow = () => (
+  <WhoToFollowWrapper>
+    <Naming>
+Who to follow
+    </Naming>
+&bull;
+    {' '}
+    <StyledLink to="/">
+Refresh
+    </StyledLink>
+&bull;
+    {' '}
+    <StyledLink to="/view_all">
+View All
+    </StyledLink>
+    {recommendedAccounts.map((account, i) => (
       <RecommendedAccount
-        accountName="AppleInsider"
-        accountUsername="appleinsider"
-        accountImage="Avatar-follow-1.png"
+        key={i}
+        account={account}
       />
-      <RecommendedAccount
-        accountName="Creode"
-        accountUsername="Creode"
-        accountImage="Avatar-follow-2.png"
-        verified
-      />
-      <RecommendedAccount
-        accountName="Epiphany Search"
-        accountUsername="epiphanysearch"
-        accountImage="Avatar-follow-3.png"
-      />
-      <StyledLink to="/find_people_you_know">
-        <img src={peopleIcon} alt="people" /> Find people you know
-      </StyledLink>
-    </WhoToFollowWrapper>
-  );
-};
+    ))}
+    <StyledLink to="/find_people_you_know">
+      <img src={peopleIcon} alt="people" />
+      {' '}
+Find people you know
+    </StyledLink>
+  </WhoToFollowWrapper>
+);
 
 export default WhoToFollow;

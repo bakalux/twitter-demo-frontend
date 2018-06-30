@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import pinnedIcon from "./icons/icon-pinned.svg";
-import commentIcon from "./icons/icon-comments.svg";
-import retweetIcon from "./icons/icon-retweet.svg";
-import likedIcon from "./icons/icon-liked.svg";
-import notLikedIcon from "./icons/icon-not-liked.svg";
-import envelopeIcon from "./icons/icon-envelope.svg";
+import pinnedIcon from './icons/icon-pinned.svg';
+import commentIcon from './icons/icon-comments.svg';
+import retweetIcon from './icons/icon-retweet.svg';
+import likedIcon from './icons/icon-liked.svg';
+import notLikedIcon from './icons/icon-not-liked.svg';
+import envelopeIcon from './icons/icon-envelope.svg';
 
 const TweetWrapper = styled.section`
   display: block;
@@ -80,7 +80,7 @@ const TweetFooterItem = styled.span`
 `;
 
 const TweetLike = TweetFooterItem.extend`
-  color: ${props => (props.liked ? "red" : "inherit")};
+  color: ${({ liked }) => (liked ? 'red' : 'inherit')};
 `;
 
 const TweetComment = TweetFooterItem.extend``;
@@ -128,7 +128,7 @@ const ArticleLink = styled.a`
   text-decoration: none;
 `;
 
-const Tweet = props => {
+const Tweet = ({ tweet }) => {
   const {
     pinned,
     avatar,
@@ -145,52 +145,66 @@ const Tweet = props => {
     comments,
     retweets,
     likesCount,
-    liked
-  } = props;
+    liked,
+  } = tweet;
   return (
     <TweetWrapper>
       {pinned && (
         <Pinned>
-          <img src={pinnedIcon} alt="Pinned" /> Pinned Tweet
+          <img src={pinnedIcon} alt="Pinned" />
+          {' Pinned Tweet'}
         </Pinned>
       )}
-      <TweetAvatar src={process.env.PUBLIC_URL + `/img/${avatar}`} />
+      <TweetAvatar src={`${process.env.PUBLIC_URL}/img/${avatar}`} />
       <TweetContent>
         <TweetInfo>
-          <TweetProfileName>{profileName} </TweetProfileName>
-          <TweetUsername>@{username} &bull;</TweetUsername>
-          <TweetDate> {date}</TweetDate>
+          <TweetProfileName>
+            {`${profileName} `}
+          </TweetProfileName>
+          <TweetUsername>
+            {`@${username} `}
+          </TweetUsername>
+          <TweetDate>
+            {` ${date}`}
+          </TweetDate>
         </TweetInfo>
         <TweetText>
           <div dangerouslySetInnerHTML={{ __html: text }} />
           {img && (
-            <TweetImg src={process.env.PUBLIC_URL + `/img/${img}`} alt="Img" />
+            <TweetImg src={`${process.env.PUBLIC_URL}/img/${img}`} alt="Img" />
           )}
         </TweetText>
 
         {hasArticle && (
           <TweetArticle>
             <ArticleImage
-              src={process.env.PUBLIC_URL + `/img/${articleImage}`}
+              src={`${process.env.PUBLIC_URL}/img/${articleImage}`}
             />
             <ArticleContent>
-              <ArticleTitle>{articleTitle}</ArticleTitle>
-              <ArticleDescription>{articleDescription}</ArticleDescription>
-              <ArticleLink>{articleLink}</ArticleLink>
+              <ArticleTitle>
+                {articleTitle}
+              </ArticleTitle>
+              <ArticleDescription>
+                {articleDescription}
+              </ArticleDescription>
+              <ArticleLink>
+                {articleLink}
+              </ArticleLink>
             </ArticleContent>
           </TweetArticle>
         )}
         <TweetFooter>
           <TweetComment>
             <img src={commentIcon} alt="comment" />
-            {comments}
+            {comments && ` ${comments}`}
           </TweetComment>
           <TweetRetweet>
-            <img src={retweetIcon} alt="retweet" /> {retweets}
+            <img src={retweetIcon} alt="retweet" />
+            {retweets && ` ${retweets}`}
           </TweetRetweet>
           <TweetLike liked={liked}>
             <img src={liked ? likedIcon : notLikedIcon} alt="like" />
-            {likesCount}
+            {likesCount && ` ${likesCount}`}
           </TweetLike>
           <TweetEnvelope>
             <img src={envelopeIcon} alt="envelope" />
