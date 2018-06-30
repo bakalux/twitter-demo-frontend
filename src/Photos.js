@@ -26,14 +26,14 @@ const PhotoImage = styled.img`
 
 const Photos = ({ photos }) => (
   <PhotosWrapper>
-    <TitleLink to="photos_and_videos">
+    <TitleLink to="photos-and-videos">
       <img src={photosIcon} alt="photos" />
       {` ${photos.length} Photos and videos`}
     </TitleLink>
     <ImagesWrapper>
-      {photos.map((photo, i) => (
+      {photos.map(photo => (
         <PhotoImage
-          key={i}
+          key={photo.id}
           src={`${process.env.PUBLIC_URL}/img/${photo.src}`}
         />
       ))}

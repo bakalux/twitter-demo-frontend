@@ -32,9 +32,9 @@ const Followers = ({ followers }) => (
       Followers you know
     </StyledLink>
     <ImagesWrapper>
-      {followers.map((follower, i) => (
+      {followers.map(follower => (
         <FollowerAvatar
-          key={i}
+          key={follower.id}
           src={`${process.env.PUBLIC_URL}/img/${follower.src}`}
         />
       ))}

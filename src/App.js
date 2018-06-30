@@ -7,8 +7,8 @@ import ProfilePage from './ProfilePage';
 const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/EveryInteract" component={ProfilePage} />
-      <Redirect from="/" to="/EveryInteract" />
+      <Redirect exact from="/" to="/EveryInteract" />
+      <Route path="/:username" component={ProfilePage} />
     </Switch>
   </BrowserRouter>
 );

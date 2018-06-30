@@ -1,20 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import Header from './Header';
 import Statistics from './Statistics';
 import TweetButton from './TweetButton';
 import ProfileCard from './ProfileCard';
-import Tweet from './Tweet';
 import Followers from './Followers';
 import Photos from './Photos';
 import WhoToFollow from './WhoToFollow';
 import Trends from './Trends';
 import Footer from './Footer';
 
-import profile from './data/profiles/everyinteract';
+import profile from './data/profiles';
+import FollowingFeed from './FollowingFeed';
+import FollowersFeed from './FollowersFeed';
+import Feed from './Feed';
+import LikesFeed from './LikesFeed';
+import ListsFeed from './ListsFeed';
 
 const Wrapper = styled.section`
   width: 100%;
@@ -66,35 +70,6 @@ const MainSection = styled.section`
   min-height: 50vh;
 `;
 
-const Feed = styled.section`
-  display: inline-block;
-  background-color: #ffffff;
-  padding: 0;
-  margin-left: 5%;
-`;
-
-const FeedHeader = styled.div`
-  display: block;
-  border-bottom: solid 1px #e1e8ed;
-  color: #1da1f2;
-  padding: 10px 10px;
-`;
-
-const FeedHeaderLink = styled(NavLink)`
-  text-decoration: none;
-  margin-right: 2%;
-  font-weight: bold;
-  color: #1da1f2;
-
-  &:hover {
-    color: black;
-    cursor: pointer;
-  }
-  &.active {
-    color: black;
-  }
-`;
-
 const ProfilePage = () => (
   <Wrapper>
     <Helmet>
@@ -125,25 +100,13 @@ const ProfilePage = () => (
           <Photos photos={profile.photos} />
         </div>
         <div className="col-lg-6 col-xl-6">
-          <Feed>
-            <FeedHeader>
-              <FeedHeaderLink className="active" to={`/${profile.username}`}>
-                Tweets
-              </FeedHeaderLink>
-              <FeedHeaderLink to={`/${profile.username}/with-replies`}>
-                Tweets & replies
-              </FeedHeaderLink>
-              <FeedHeaderLink to={`/${profile.username}/media`}>
-                Media
-              </FeedHeaderLink>
-            </FeedHeader>
-            {profile.tweets.map((tweet, i) => (
-              <Tweet
-                key={i}
-                tweet={tweet}
-              />
-            ))}
-          </Feed>
+          <Switch>
+            <Route exact path="/:username/following" render={() => <FollowingFeed profile={profile} />} />
+            <Route exact path="/:username/followers" render={() => <FollowersFeed profile={profile} />} />
+            <Route exact path="/:username/likes" render={() => <LikesFeed profile={profile} />} />
+            <Route exact path="/:username/lists" render={() => <ListsFeed profile={profile} />} />
+            <Route path="/:username" render={() => <Feed profile={profile} />} />
+          </Switch>
         </div>
         <div className="col-xl-3 col-lg-3">
           <WhoToFollow />

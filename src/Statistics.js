@@ -48,55 +48,56 @@ const StatLink = styled(NavLink)`
   }
 `;
 
-const Statistics = ({
-  profile: {
+const Statistics = ({ profile }) => {
+  const {
     username, statistics: {
       tweets, following, followers, likes, lists,
     },
-  },
-}) => (
-  <StatisticsWrapper>
-    <StatLink to={`/${username}`} className="active">
-      <LinkLabel>
-        Tweets
-      </LinkLabel>
-      <LinkValue>
-        {tweets}
-      </LinkValue>
-    </StatLink>
-    <StatLink to={`${username}/following`}>
-      <LinkLabel>
-        Following
-      </LinkLabel>
-      <LinkValue>
-        {following}
-      </LinkValue>
-    </StatLink>
-    <StatLink to={`${username}/followers`}>
-      <LinkLabel>
-        Followers
-      </LinkLabel>
-      <LinkValue>
-        {followers}
-      </LinkValue>
-    </StatLink>
-    <StatLink to={`${username}/likes`}>
-      <LinkLabel>
-        Likes
-      </LinkLabel>
-      <LinkValue>
-        {likes}
-      </LinkValue>
-    </StatLink>
-    <StatLink to={`${username}/lists`}>
-      <LinkLabel>
-        Lists
-      </LinkLabel>
-      <LinkValue>
-        {lists}
-      </LinkValue>
-    </StatLink>
-  </StatisticsWrapper>
-);
+  } = profile;
+  return (
+    <StatisticsWrapper>
+      <StatLink exact to={`/${username}`}>
+        <LinkLabel>
+          Tweets
+        </LinkLabel>
+        <LinkValue>
+          {tweets}
+        </LinkValue>
+      </StatLink>
+      <StatLink exact to={`/${username}/following`}>
+        <LinkLabel>
+          Following
+        </LinkLabel>
+        <LinkValue>
+          {following}
+        </LinkValue>
+      </StatLink>
+      <StatLink exact to={`/${username}/followers`}>
+        <LinkLabel>
+          Followers
+        </LinkLabel>
+        <LinkValue>
+          {followers}
+        </LinkValue>
+      </StatLink>
+      <StatLink exact to={`/${username}/likes`}>
+        <LinkLabel>
+          Likes
+        </LinkLabel>
+        <LinkValue>
+          {likes}
+        </LinkValue>
+      </StatLink>
+      <StatLink exact to={`/${username}/lists`}>
+        <LinkLabel>
+          Lists
+        </LinkLabel>
+        <LinkValue>
+          {lists}
+        </LinkValue>
+      </StatLink>
+    </StatisticsWrapper>
+  );
+};
 
 export default Statistics;

@@ -28,9 +28,9 @@ const Trends = () => (
     <TitleLink to="/change">
       Change
     </TitleLink>
-    {trends.map((trend, i) => (
+    {trends.map(trend => (
       <Trend
-        key={i}
+        key={trend.id}
         hashTag={trend.hashTag}
         description={trend.description}
         tweetCount={trend.tweetCount}

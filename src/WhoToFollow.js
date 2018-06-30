@@ -24,28 +24,27 @@ const Naming = styled.h4`
 const WhoToFollow = () => (
   <WhoToFollowWrapper>
     <Naming>
-Who to follow
+      Who to follow
     </Naming>
-&bull;
+    &bull;
     {' '}
     <StyledLink to="/">
-Refresh
+      Refresh
     </StyledLink>
-&bull;
+    &bull;
     {' '}
     <StyledLink to="/view_all">
-View All
+      View All
     </StyledLink>
-    {recommendedAccounts.map((account, i) => (
+    {recommendedAccounts.map(account => (
       <RecommendedAccount
-        key={i}
+        key={account.id}
         account={account}
       />
     ))}
-    <StyledLink to="/find_people_you_know">
+    <StyledLink to="/find-people-you-know">
       <img src={peopleIcon} alt="people" />
-      {' '}
-Find people you know
+      {' Find people you know'}
     </StyledLink>
   </WhoToFollowWrapper>
 );
