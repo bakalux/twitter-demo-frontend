@@ -1,18 +1,16 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import ProfilePage from "./ProfilePage";
+import React from 'react';
+import {
+  BrowserRouter, Route, Redirect, Switch,
+} from 'react-router-dom';
+import ProfilePage from './ProfilePage';
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <React.Fragment>
-          <Redirect from="/" to="/EveryInteract" />
-          <Route exact path="/EveryInteract" component={ProfilePage} />
-        </React.Fragment>
-      </BrowserRouter>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <Redirect exact from="/" to="/EveryInteract" />
+      <Route path="/:username" component={ProfilePage} />
+    </Switch>
+  </BrowserRouter>
+);
 
 export default App;

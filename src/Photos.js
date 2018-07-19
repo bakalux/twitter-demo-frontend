@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import photosIcon from "./icons/icon-videos.svg";
-import TitleLink from "./StyledLink";
+import React from 'react';
+import styled from 'styled-components';
+import photosIcon from './icons/icon-videos.svg';
+import TitleLink from './StyledLink';
 
 const PhotosWrapper = styled.section`
   display: inline-block;
@@ -24,22 +24,21 @@ const PhotoImage = styled.img`
   }
 `;
 
-const Photos = () => {
-  return (
-    <PhotosWrapper>
-      <TitleLink to="photos_and_videos">
-        <img src={photosIcon} alt="photos" /> 522 Photos and videos
-      </TitleLink>
-      <ImagesWrapper>
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-1.png"} />
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-2.png"} />
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-3.png"} />
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-4.png"} />
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-5.png"} />
-        <PhotoImage src={process.env.PUBLIC_URL + "/img/photo-6.png"} />
-      </ImagesWrapper>
-    </PhotosWrapper>
-  );
-};
+const Photos = ({ photos }) => (
+  <PhotosWrapper>
+    <TitleLink to="photos-and-videos">
+      <img src={photosIcon} alt="photos" />
+      {` ${photos.length} Photos and videos`}
+    </TitleLink>
+    <ImagesWrapper>
+      {photos.map(photo => (
+        <PhotoImage
+          key={photo.id}
+          src={`${process.env.PUBLIC_URL}/img/${photo.src}`}
+        />
+      ))}
+    </ImagesWrapper>
+  </PhotosWrapper>
+);
 
 export default Photos;

@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 const StatisticsWrapper = styled.div`
   display: inline-block;
@@ -19,13 +19,12 @@ const LinkValue = styled.span`
   margin-top: 7px;
   display: block;
   font-size: 15px;
-  color: ${props => (props.active ? "#1DA1F2" : "inherit")};
 `;
 
 const StatLink = styled(NavLink)`
   padding: 10px 25px;
   display: inline-block;
-  border-bottom: ${props => (props.active ? "solid 4px #1DA1F2" : "none")};
+  border-bottom: ${({ active }) => (active ? 'solid 4px #1DA1F2' : 'none')};
   font-size: 1rem;
   font-weight: bold;
   font-family: "Helvetica", sans-serif;
@@ -49,29 +48,53 @@ const StatLink = styled(NavLink)`
   }
 `;
 
-const Statistics = props => {
-  const { tweets, following, followers, likes, lists } = props;
+const Statistics = ({ profile }) => {
+  const {
+    username, statistics: {
+      tweets, following, followers, likes, lists,
+    },
+  } = profile;
   return (
     <StatisticsWrapper>
-      <StatLink to="/EveryInteract" active>
-        <LinkLabel>Tweets</LinkLabel>
-        <LinkValue active>{tweets}</LinkValue>
+      <StatLink exact to={`/${username}`}>
+        <LinkLabel>
+          Tweets
+        </LinkLabel>
+        <LinkValue>
+          {tweets}
+        </LinkValue>
       </StatLink>
-      <StatLink to="EveryInteract/following">
-        <LinkLabel>Following</LinkLabel>
-        <LinkValue>{following}</LinkValue>
+      <StatLink exact to={`/${username}/following`}>
+        <LinkLabel>
+          Following
+        </LinkLabel>
+        <LinkValue>
+          {following}
+        </LinkValue>
       </StatLink>
-      <StatLink to="EveryInteract/followers">
-        <LinkLabel>Followers</LinkLabel>
-        <LinkValue>{followers}</LinkValue>
+      <StatLink exact to={`/${username}/followers`}>
+        <LinkLabel>
+          Followers
+        </LinkLabel>
+        <LinkValue>
+          {followers}
+        </LinkValue>
       </StatLink>
-      <StatLink to="EveryInteract/likes">
-        <LinkLabel>Likes</LinkLabel>
-        <LinkValue>{likes}</LinkValue>
+      <StatLink exact to={`/${username}/likes`}>
+        <LinkLabel>
+          Likes
+        </LinkLabel>
+        <LinkValue>
+          {likes}
+        </LinkValue>
       </StatLink>
-      <StatLink to="EveryInteract/lists">
-        <LinkLabel>Lists</LinkLabel>
-        <LinkValue>{lists}</LinkValue>
+      <StatLink exact to={`/${username}/lists`}>
+        <LinkLabel>
+          Lists
+        </LinkLabel>
+        <LinkValue>
+          {lists}
+        </LinkValue>
       </StatLink>
     </StatisticsWrapper>
   );

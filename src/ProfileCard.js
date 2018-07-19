@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import verifiedIcon from "./icons/icon-verified.svg";
-import locationIcon from "./icons/icon-location.svg";
-import linkIcon from "./icons/icon-link.svg";
-import joinedIcon from "./icons/icon-joined.svg";
+import verifiedIcon from './icons/icon-verified.svg';
+import locationIcon from './icons/icon-location.svg';
+import linkIcon from './icons/icon-link.svg';
+import joinedIcon from './icons/icon-joined.svg';
 
-import TweetButton from "./TweetButton";
+import TweetButton from './TweetButton';
 
 const ProfileCardWrapper = styled.section`
   display: inline-block;
@@ -59,7 +59,7 @@ const ProfileLink = styled.a`
   }
 `;
 
-const ProfileCard = props => {
+const ProfileCard = ({ profile }) => {
   const {
     profileName,
     username,
@@ -67,30 +67,47 @@ const ProfileCard = props => {
     profileLink,
     joined,
     verified,
-    following
-  } = props;
+    following,
+  } = profile;
 
   return (
     <ProfileCardWrapper>
       <ProfileName>
-        {profileName} {verified && <img src={verifiedIcon} alt="" />}
+        {`${profileName} `}
+        {verified && <img src={verifiedIcon} alt="" />}
       </ProfileName>
       <Username>
-        @{username} {following && <Following>Follows you</Following>}
+        {`@${username} `}
+        {following && (
+        <Following>
+          Follows you
+        </Following>
+        )}
       </Username>
-      <Description>{description}</Description>
+      <Description>
+        {description}
+      </Description>
       <LocationWrapper>
-        <img src={locationIcon} alt="location" /> London, UK
+        <img src={locationIcon} alt="location" />
+        {' London, UK'}
       </LocationWrapper>
       <ProfileLinkWrapper>
-        <img src={linkIcon} alt="link" />{" "}
-        <ProfileLink href={`https://${profileLink}`}>{profileLink}</ProfileLink>
+        <img src={linkIcon} alt="link" />
+        {' '}
+        <ProfileLink href={`https://${profileLink}`}>
+          {profileLink}
+        </ProfileLink>
       </ProfileLinkWrapper>
       <JoinedWrapper>
-        <img src={joinedIcon} alt="joined" /> Joined {joined}
+        <img src={joinedIcon} alt="joined" />
+        {` Joined ${joined}`}
       </JoinedWrapper>
-      <TweetButton>Tweet to</TweetButton>
-      <TweetButton>Message</TweetButton>
+      <TweetButton>
+        Tweet to
+      </TweetButton>
+      <TweetButton>
+        Message
+      </TweetButton>
     </ProfileCardWrapper>
   );
 };
